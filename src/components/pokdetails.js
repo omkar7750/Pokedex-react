@@ -106,11 +106,14 @@ export default function PokDetails() {
             <div className="evolution-cards">
               <ul>
                 {prev_evolution && prev_evolution.length ? (
-                  prev_evolution.map((prePok) => {
+                  prev_evolution.map((prePok, ind) => {
                     return (
                       <>
-                        <Pokecard {...prePok} />
-                        <li className="li-chevron">
+                        <Pokecard key={`evo-pok-card-pre-${ind}`} {...prePok} />
+                        <li
+                          key={`evo-chevron-pre-${ind}`}
+                          className="li-chevron"
+                        >
                           <FontAwesomeIcon icon={faChevronRight} />
                         </li>
                       </>
@@ -120,15 +123,23 @@ export default function PokDetails() {
                   <></>
                 )}
 
-                {pok && pok.type && <Pokecard {...pok} />}
+                {pok && pok.type && (
+                  <Pokecard key={`evo-pok-card-current`} {...pok} />
+                )}
                 {next_evolution && next_evolution.length ? (
-                  next_evolution.map((prePok) => {
+                  next_evolution.map((prePok, ind) => {
                     return (
                       <>
-                        <li className="li-chevron">
+                        <li
+                          key={`evo-chevron-next-${ind}`}
+                          className="li-chevron"
+                        >
                           <FontAwesomeIcon icon={faChevronRight} />
                         </li>
-                        <Pokecard {...prePok} />
+                        <Pokecard
+                          key={`evo-pok-card-next-${ind}`}
+                          {...prePok}
+                        />
                       </>
                     );
                   })

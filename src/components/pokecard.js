@@ -13,8 +13,13 @@ export default function Pokecard(props) {
         <p className="pok-id">#{props.num}</p>
         <h5 className="pok-name">{props.name}</h5>
         <div className="abilities">
-          {props.type.map((t) => (
-            <span className="pill background-color-dragon">{t}</span>
+          {props.type.map((t, tindex) => (
+            <span
+              key={`ability-${tindex}`}
+              className="pill background-color-dragon"
+            >
+              {t}
+            </span>
           ))}
         </div>
       </div>
