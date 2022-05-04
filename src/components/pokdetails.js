@@ -74,14 +74,24 @@ export default function PokDetails() {
 
               <div className="pokdetails-cat-title">Type</div>
               {pok.type &&
-                pok.type.map((t) => (
-                  <span className="pill background-color-dragon">{t}</span>
+                pok.type.map((t, tind) => (
+                  <span
+                    key={`pok-type-${tind}`}
+                    className="pill background-color-dragon"
+                  >
+                    {t}
+                  </span>
                 ))}
 
               <div className="pokdetails-cat-title">Weaknesses</div>
               {pok.weaknesses &&
-                pok.weaknesses.map((t) => (
-                  <span className="pill background-color-dragon">{t}</span>
+                pok.weaknesses.map((t, tind) => (
+                  <span
+                    key={`pok-weaknesses-${tind}`}
+                    className="pill background-color-dragon"
+                  >
+                    {t}
+                  </span>
                 ))}
             </div>
           </div>

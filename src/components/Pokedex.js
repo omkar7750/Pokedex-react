@@ -109,7 +109,7 @@ export default class Pokedex extends Component {
         <AdvancedSearch {...advSearchProps} />
         <ul>
           {this.state.filteredPoks.map((pok, i) => {
-            return <Pokecard {...pok} />;
+            return <Pokecard key={`pokdetails-${i}`} {...pok} />;
           })}
         </ul>
       </div>
