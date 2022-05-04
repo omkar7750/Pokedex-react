@@ -28,7 +28,7 @@ p {
   }
 }
 .pokedex ul .li:hover {
-  animation: animation 0.5s 1 linear;
+  animation: animation 0.3s 1 linear;
   /* box-shadow: 0px 1px 1px black; */
 }
 
@@ -235,9 +235,14 @@ h5 {
   margin-left: 0.125em;
 }
 
+.accordion {
+  border-radius: 13px !important;
+}
+
 .accordion__button {
   color: white !important;
   background-color: cadetblue !important;
+  width: auto !important;
 }
 
 .accordion__button:hover {
@@ -336,7 +341,7 @@ h5 {
 }
 
 .evolution-container ul .li:hover {
-  animation: animation 1s 1 linear;
+  animation: animation 0.3s 1 linear;
 }
 
 /* .column-6 {
