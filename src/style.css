@@ -20,16 +20,16 @@ p {
 }
 @keyframes animation {
   50% {
-    background-color: #aaa;
+    /* background-color: #aaa; */
+    transform: translateY(-10px);
   }
   100% {
-    background-color: #30a7d7;
+    /* background-color: #30a7d7; */
   }
 }
 .pokedex ul .li:hover {
-  /* box-shadow: 1px 1px 1px grey; */
-  /* transition: 500ms linear; */
-  animation: animation 1s 1 linear;
+  animation: animation 0.5s 1 linear;
+  /* box-shadow: 0px 1px 1px black; */
 }
 
 .pokedex ul .li img {
@@ -40,15 +40,9 @@ p {
   cursor: pointer;
 }
 
-.pokedex ul .li img:hover {
-  /* box-shadow: 1px 1px 1px grey; */
-}
-
 .pok-info {
   clear: both;
   top: -5px;
-  /* padding-left: 7.2525%; */
-  /* margin-left: 30px; */
 }
 
 .pokimg {
@@ -81,7 +75,6 @@ p {
 h5 {
   line-height: 125%;
   margin: 0.5em 0;
-  /* margin-left: -8px; */
 }
 
 .abilities span {
@@ -361,7 +354,7 @@ h5 {
 .backbtn {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .profile-images img {
