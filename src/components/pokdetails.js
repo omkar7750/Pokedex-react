@@ -5,6 +5,12 @@ import Pokecard from './pokecard';
 
 import config from '../config.js';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+
 export default function PokDetails() {
   let { pokId } = useParams();
   const [pok, setPok] = useState({});
@@ -101,15 +107,30 @@ export default function PokDetails() {
               <ul>
                 {prev_evolution && prev_evolution.length ? (
                   prev_evolution.map((prePok) => {
-                    return <Pokecard {...prePok} />;
+                    return (
+                      <>
+                        <Pokecard {...prePok} />
+                        <li className="li-chevron">
+                          <FontAwesomeIcon icon={faChevronRight} />
+                        </li>
+                      </>
+                    );
                   })
                 ) : (
                   <></>
                 )}
+
                 {pok && pok.type && <Pokecard {...pok} />}
                 {next_evolution && next_evolution.length ? (
                   next_evolution.map((prePok) => {
-                    return <Pokecard {...prePok} />;
+                    return (
+                      <>
+                        <li className="li-chevron">
+                          <FontAwesomeIcon icon={faChevronRight} />
+                        </li>
+                        <Pokecard {...prePok} />
+                      </>
+                    );
                   })
                 ) : (
                   <></>
@@ -118,7 +139,10 @@ export default function PokDetails() {
             </div>
           </div>
           <Link to={'/'}>
-            <button id="msearchbtn">Back To Home</button>
+            <button id="msearchbtn" className="backbtn">
+              <FontAwesomeIcon icon={faChevronLeft} />
+              Back To Home
+            </button>
           </Link>
         </section>
       </div>

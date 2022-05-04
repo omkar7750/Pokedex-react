@@ -337,6 +337,11 @@ h5 {
   padding: 2px;
 }
 
+.evolution-container .evolution-cards ul .li-chevron {
+  padding-top: 55px;
+  font-size: x-large;
+}
+
 .evolution-container ul .li:hover {
   animation: animation 1s 1 linear;
 }
@@ -352,6 +357,12 @@ h5 {
 .push-1 {
   margin-left: 7.2525%;
 } */
+
+.backbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 .profile-images img {
   float: left;
