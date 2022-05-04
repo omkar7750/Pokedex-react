@@ -68,7 +68,6 @@ export default class Pokedex extends Component {
   };
 
   componentDidMount() {
-    debugger;
     fetch(config.dataUrl)
       .then((response) => response.json())
       .then((json) => {
@@ -100,8 +99,8 @@ export default class Pokedex extends Component {
     };
 
     return (
-      <div class="pokedex">
-        <h1>Pokedex</h1>
+      <div className="pokedex">
+        <h1 className="pokedex-title">Pokedex</h1>
         <SearchBox
           nameOrNum={this.state.nameOrNum}
           handleMSearch={this.handleMSearch}

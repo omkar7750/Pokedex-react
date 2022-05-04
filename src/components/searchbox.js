@@ -7,14 +7,19 @@ export default function SearchBox(props) {
     props.handleMSearch(name, '', '', 'MainSearch');
   };
 
+  let handleKeyPress = (event) => {
+    if (event.key === 'Enter') props.handleMSearch(name, '', '', 'MainSearch');
+  };
+
   return (
-    <div>
+    <div className="searchbox-container">
       <label id="mfilterLabel">Name or Number</label>
       <input
         type="text"
         onChange={(e) => {
           setName(e.target.value);
         }}
+        onKeyPress={handleKeyPress}
         value={name}
         id="mfilter"
         name="mainfilter"

@@ -4,10 +4,21 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.pokedex-title {
+  background-color: #cccccc;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px black;
+}
+
 .pokedex ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+}
+
+.searchbox-container {
+  padding-left: 15px;
 }
 
 .pokedex ul .li {
@@ -129,10 +140,10 @@ h5 {
 
 .adv-filter-title {
   font-family: 'Flexo-Demi', arial, sans-serif;
-  color: #313131;
+  color: white;
   text-transform: none;
   /* font-size: 145%; */
-  font-size: 130%;
+  font-size: 160%;
   margin-right: 15px;
 }
 
@@ -207,31 +218,25 @@ h5 {
   color: #313131;
   line-height: 30px;
   width: 28px;
-}
-
-.pokedex-filter-tw-list li .type-filter,
-.pokedex-filter-tw-list li .weakness-filter {
-  font-family: 'Flexo-Bold', arial, sans-serif;
-  background: #f2f2f2;
-  border-radius: 14px;
-  color: #313131;
-  line-height: 30px;
-  width: 28px;
+  font-weight: 550;
 }
 
 #pokIdName {
   font-family: 'Flexo-Medium', arial, sans-serif;
-  color: #212121;
-  float: left;
+  /* float: left; */
   font-size: 225%;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   text-align: center;
   width: 100%;
   word-break: break-word;
+  padding: 15px 0;
+  background-color: #616161;
+  color: #6cc06c;
+  border-radius: 8px;
 }
 
 .pokemon-number {
-  color: #616161;
+  color: #9ea19f;
   margin-left: 0.125em;
 }
 
@@ -243,10 +248,22 @@ h5 {
   color: white !important;
   background-color: cadetblue !important;
   width: auto !important;
+  border-radius: 8px !important;
 }
 
 .accordion__button:hover {
   background-color: #447b7c !important;
+}
+
+.accordion__item {
+  background: #616161;
+  border-radius: 8px;
+}
+
+.accordion__panel {
+  background: #616161;
+  color: white;
+  border-radius: 8px;
 }
 
 /* .profile-images img {
@@ -278,7 +295,7 @@ h5 {
 
 .column-6 {
   display: flex;
-  margin-top: 45px;
+  margin-top: 15px;
 }
 
 .column-6 .abilities {
