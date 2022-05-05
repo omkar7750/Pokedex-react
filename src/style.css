@@ -37,7 +37,7 @@ p {
   /* float: left; */
   position: relative;
   margin: 0 0.78125% 50px;
-  width: 135px;
+  width: 180px;
   padding: 3px;
 }
 @keyframes animation {
@@ -135,6 +135,8 @@ h5 {
   box-sizing: border-box;
   border-radius: 5px;
   cursor: pointer;
+  display: inline-flex;
+    justify-content: center;
 }
 
 #msearchbtn:hover {
@@ -432,4 +434,44 @@ h5 {
 }
 .pokemon-ability-info.active {
   display: block;
+}
+
+
+@media screen and (min-width: 474px) and (max-width: 657px){
+  .pokedex ul .li  {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 474px){
+  .pokedex ul .li  {
+    width: 70%;
+    
+  }
+  #mfilter {
+    width: 50%;
+  }
+  
+}
+
+@media screen and (min-width: 370px) and (max-width: 474px){
+  #msearchbtn {
+    width: 24%;
+  }
+ 
+}
+
+@media screen and (max-width: 370px){
+  #msearchbtn {
+    font-size: x-small;
+    width: 24%;
+  }
+ 
+}
+
+
+@media screen and (max-width: 254px){
+  #mfilterLabel {
+    font-size: 120%;
+  }
 }
