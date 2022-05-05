@@ -66,11 +66,11 @@ export default function AdvancedSearch(props) {
               </div>
             </div>
             <div className="content-block content-block-full">
-              <ul class="pokedex-filter-tw-list">
+              <ul className="pokedex-filter-tw-list">
                 {props.typeWeaknessList.map((tw, index) => {
                   return (
                     <li key={`pok-type-weak-filter-opt-${index}`}>
-                      <span class="pill background-color-dragon">{tw}</span>
+                      <span className="pill background-color-dragon">{tw}</span>
                       <span
                         style={{
                           backgroundColor: filtertypes.includes(tw)

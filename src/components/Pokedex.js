@@ -106,11 +106,12 @@ export default class Pokedex extends Component {
           handleMSearch={this.handleMSearch}
         />
         <AdvancedSearch {...advSearchProps} />
-        <ul>
+        <div data-testid="pokListContainer" className='poke-list-container'><ul>
           {this.state.filteredPoks.map((pok, i) => {
             return <Pokecard key={`pokdetails-${i}`} {...pok} />;
           })}
         </ul>
+        </div>
       </div>
     );
   }

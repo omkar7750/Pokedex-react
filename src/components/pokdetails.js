@@ -108,15 +108,14 @@ export default function PokDetails() {
                 {prev_evolution && prev_evolution.length ? (
                   prev_evolution.map((prePok, ind) => {
                     return (
-                      <>
-                        <Pokecard key={`evo-pok-card-pre-${ind}`} {...prePok} />
-                        <li
-                          key={`evo-chevron-pre-${ind}`}
+                      <React.Fragment key={`evo-chevron-pre-${ind}`}>
+                        <Pokecard {...prePok} />
+                        <li                          
                           className="li-chevron"
                         >
                           <FontAwesomeIcon icon={faChevronRight} />
                         </li>
-                      </>
+                      </React.Fragment>
                     );
                   })
                 ) : (
@@ -129,18 +128,16 @@ export default function PokDetails() {
                 {next_evolution && next_evolution.length ? (
                   next_evolution.map((prePok, ind) => {
                     return (
-                      <>
-                        <li
-                          key={`evo-chevron-next-${ind}`}
+                      <React.Fragment key={`evo-pok-card-next-${ind}`}>
+                        <li                          
                           className="li-chevron"
                         >
                           <FontAwesomeIcon icon={faChevronRight} />
                         </li>
-                        <Pokecard
-                          key={`evo-pok-card-next-${ind}`}
+                        <Pokecard                          
                           {...prePok}
                         />
-                      </>
+                      </ React.Fragment>
                     );
                   })
                 ) : (
@@ -149,7 +146,7 @@ export default function PokDetails() {
               </ul>
             </div>
           </div>
-          <Link to={'/'}>
+          <Link className='backbtnlink' to={'/'}>
             <button id="msearchbtn" className="backbtn">
               <FontAwesomeIcon icon={faChevronLeft} />
               Back To Home
