@@ -13,7 +13,7 @@ export default function SearchBox(props) {
 
   return (
     <div className="searchbox-container">
-      <label id="mfilterLabel">Name or Number</label>
+      <label htmlFor="mfilter" id="mfilterLabel">Name or Number</label>
       <input
         type="text"
         onChange={(e) => {
@@ -22,9 +22,10 @@ export default function SearchBox(props) {
         onKeyPress={handleKeyPress}
         value={name}
         id="mfilter"
+        data-testid="searchbox-input"
         name="mainfilter"
       />
-      <button onClick={handleSearch} id="msearchbtn">
+      <button onClick={handleSearch} data-testid={"searchboxSearchbtn"} id="msearchbtn">
         Search
       </button>
     </div>
