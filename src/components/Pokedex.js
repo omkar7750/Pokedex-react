@@ -100,7 +100,7 @@ export default class Pokedex extends Component {
 
     return (
       <div className="pokedex">
-        <h1 className="pokedex-title">Pokedex</h1>
+        <h1 className="pokedex-title">Pokédex</h1>
         <SearchBox
           nameOrNum={this.state.nameOrNum}
           handleMSearch={this.handleMSearch}

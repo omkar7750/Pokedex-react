@@ -52,7 +52,7 @@ export default function PokDetails() {
   }, [pokId]);
 
   return (
-    <div>
+    <div id="pok-details-container">
       <div>
         <div id="pokIdName">
           {pok.name}

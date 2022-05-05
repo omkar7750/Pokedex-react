@@ -47,7 +47,7 @@ export default function AdvancedSearch(props) {
   };
 
   return (
-    <Accordion allowZeroExpanded={true}>
+    <Accordion data-testid={"advancedSearch"} allowZeroExpanded={true}>
       <AccordionItem>
         <AccordionItemHeading>
           <AccordionItemButton>Show Advanced Search</AccordionItemButton>
@@ -70,7 +70,7 @@ export default function AdvancedSearch(props) {
                 {props.typeWeaknessList.map((tw, index) => {
                   return (
                     <li key={`pok-type-weak-filter-opt-${index}`}>
-                      <span className="pill background-color-dragon">{tw}</span>
+                      <span data-testid="ability" className="pill background-color-dragon">{tw}</span>
                       <span
                         style={{
                           backgroundColor: filtertypes.includes(tw)
@@ -78,6 +78,7 @@ export default function AdvancedSearch(props) {
                             : '#f2f2f2',
                         }}
                         data-type="type"
+                        data-testid={`type-${tw}`}
                         data-value={tw}
                         onClick={() => handleSelect(tw, 'T')}
                         className="filter type-filter type-weakness-filter-btn toggle type"
@@ -86,12 +87,13 @@ export default function AdvancedSearch(props) {
                       </span>
                       <span
                         data-type="weakness"
+                        data-testid={`weakness-${tw}`}
                         style={{
                           backgroundColor: filterweaknessess.includes(tw)
                             ? '#30a7d7'
                             : '#f2f2f2',
                         }}
-                        data-value="bug"
+                        data-value={tw}
                         onClick={() => handleSelect(tw, 'W')}
                         className="filter weakness-filter type-weakness-filter-btn toggle weakness"
                       >
@@ -103,10 +105,10 @@ export default function AdvancedSearch(props) {
               </ul>
             </div>
             <div>
-              <button onClick={handleReset} id="msearchbtn">
+              <button data-testid="resetBtn" onClick={handleReset} id="msearchbtn">
                 Reset
               </button>
-              <button onClick={handleSearch} id="msearchbtn">
+              <button data-testid="advSearchBtn" onClick={handleSearch} id="msearchbtn">
                 Search
               </button>
             </div>

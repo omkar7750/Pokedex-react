@@ -5,10 +5,21 @@ p {
 }
 
 .pokedex-title {
-  background-color: #cccccc;
-  padding: 15px;
+  /* background-color: #cccccc; */
+  background: url('../public/body_bg.png');
+  padding: 25px;
   border-radius: 8px;
   box-shadow: 0 1px 1px black;
+  color: #919191;
+    cursor: default;
+    font-size: 187.5%;
+    line-height: 125%;
+    text-transform: none;
+    font-family: "Flexo-Regular",arial,sans-serif;
+}
+
+.pokedex, #pok-details-container, .evolution-container .evolution-cards .li {
+  background: url('../public/container_bg.png');
 }
 
 .pokedex ul {
@@ -39,8 +50,9 @@ p {
   }
 }
 .pokedex ul .li:hover {
-  animation: animation 0.3s 1 linear;
-  /* box-shadow: 0px 1px 1px black; */
+    animation: animation 0.3s 1 linear;
+    box-shadow: 0px 1px 1px black;
+    border-radius: 8px;
 }
 
 .pokedex ul .li img {
@@ -249,13 +261,14 @@ h5 {
 
 .accordion__button {
   color: white !important;
-  background-color: cadetblue !important;
+  background-color: #616161 !important;
   width: auto !important;
   border-radius: 8px !important;
+  font-family: 'Flexo-Demi', arial, sans-serif !important;
 }
 
 .accordion__button:hover {
-  background-color: #447b7c !important;
+  background-color: #4b5454 !important;
 }
 
 .accordion__item {
@@ -362,6 +375,8 @@ h5 {
 
 .evolution-container ul .li:hover {
   animation: animation 0.3s 1 linear;
+    box-shadow: 0px 1px 1px black;
+    border-radius: 8px;
 }
 
 /* .column-6 {
