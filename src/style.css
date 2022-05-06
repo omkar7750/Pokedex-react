@@ -30,7 +30,7 @@ p {
 }
 
 .pokedex-filter-tw-list {
-  max-height: 450px;
+  max-height: 400px;
   overflow: auto;
 }
 
@@ -477,6 +477,16 @@ h5 {
     width: 24%;
   }
  
+  .pokedex-filter-tw-list li .pill {
+    width: 40%;
+  }
+
+  .pokedex-filter-tw-list li .type-filter, .pokedex-filter-tw-list li .weakness-filter {
+    font-size: small;
+    font-weight: 400;
+    width: 20px;
+  }
+
 }
 
 
@@ -488,4 +498,17 @@ h5 {
   .adv-title-container {
     font-size: 70%;
   }
+
+  .pokedex-filter-tw-list li .pill {
+    width: 40%;
+    font-size: small;
+  }
+
+  .pokedex-filter-tw-list li .type-filter, .pokedex-filter-tw-list li .weakness-filter {
+    font-size: small;
+    font-weight: 400;
+    width: 20px;
+  }
+
+  
 }
