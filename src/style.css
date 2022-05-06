@@ -26,6 +26,27 @@ p {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  
+}
+
+.pokedex-filter-tw-list {
+  max-height: 450px;
+  overflow: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: gray; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #333333; 
 }
 
 .searchbox-container {
@@ -175,7 +196,7 @@ h5 {
 }
 
 .pokedex-filter-tw-list {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .content-block-full {
@@ -462,5 +483,9 @@ h5 {
 @media screen and (max-width: 254px){
   #mfilterLabel {
     font-size: 120%;
+  }
+
+  .adv-title-container {
+    font-size: 70%;
   }
 }
