@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import AdvancedSearch from '../components/advancedsearch';
-
+import 'whatwg-fetch'
 
 const sampleProps = {
     typeWeaknessList:['Grass', 'Poison', 'Fire', 'Flying', 'Water', 'Bug', 'Normal', 'Electric', 'Ground', 'Fighting', 'Psychic', 'Rock', 'Ice', 'Ghost', 'Dragon', 'Fairy', 'Dark', 'Steel'],

@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import Pokedex from '../components/Pokedex';
 import { BrowserRouter } from 'react-router-dom';
-
+import 'whatwg-fetch'
 
 describe("Test Pokedex component", () => {
   test('renders Pokedex component', () => {

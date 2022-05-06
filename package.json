@@ -18,8 +18,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
+    "babel-jest": "^28.0.3",
     "react-scripts": "latest"
   },
   "browserslist": {

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import SearchBox from '../components/searchbox';
-
+import 'whatwg-fetch'
 
 
 describe("Test SearchBox component", () => {

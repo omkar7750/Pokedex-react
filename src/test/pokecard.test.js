@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import PokeCard from '../components/pokecard';
 import { BrowserRouter } from 'react-router-dom';
-
+import 'whatwg-fetch'
 const samplePokmon = {
     "id": 1,
     "num": "001",
