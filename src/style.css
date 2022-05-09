@@ -16,6 +16,9 @@ p {
     line-height: 125%;
     text-transform: none;
     font-family: "Flexo-Regular",arial,sans-serif;
+
+    display: flex;
+    align-items: center;
 }
 
 .pokedex, #pok-details-container, .evolution-container .evolution-cards .li {
@@ -444,6 +447,34 @@ h5 {
 }
 .pokemon-ability-info.active {
   display: block;
+}
+
+
+@keyframes pok-run {
+  0% {
+    margin-left: 0;
+    transform: rotateY(180deg); 
+  }
+  
+  50% { 
+    margin-left: calc(100% );
+  }
+ 
+  100% {
+    margin-left: 0;    
+  }
+}
+
+.pok-icon-pokedex {
+  margin-left: 50px;
+  background: url('../public/076.png');
+  display: inline-block;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  animation: pok-run 5s linear 2s infinite;
+  transition: left 5s, transform 2s;
 }
 
 
