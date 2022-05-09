@@ -11,6 +11,14 @@ describe("Test Pokedex component", () => {
     expect(linkElement).toBeInTheDocument();
   });
 
+
+  test('renders Pokedex animation component', () => {
+    render(<Pokedex />);
+    const pokAnimationComp = screen.getByTestId("pok-animation");
+    expect(pokAnimationComp).toBeInTheDocument();
+  });
+  
+
   test('render SearchBox child component', () => {
     const component = render(<Pokedex />);
     const searchboxComp = component.getByLabelText('Name or Number');
