@@ -17,6 +17,7 @@ export default function Pokecard(props) {
             <span
               key={`ability-${tindex}`}
               className="pill background-color-dragon"
+              id = {`ability${t}`}
             >
               {t}
             </span>

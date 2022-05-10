@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'
+// import { render, screen } from '@testing-library/react';
+// import '@testing-library/jest-dom'
+import { mount } from "enzyme";
 import PokeCard from '../components/pokecard';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import 'whatwg-fetch'
 const samplePokmon = {
     "id": 1,
@@ -38,39 +39,69 @@ const samplePokmon = {
 
 describe("Test PokeCard component", () => {
   test('renders PokeCard component', () => {
-    let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
-    const linkElement = component.getByTestId(`pokecard-${samplePokmon.id}`); 
-    expect(linkElement).toBeInTheDocument();
+    const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
+    const PokeCardComp = wrapper.find('Pokecard');
+    expect(PokeCardComp.find(`[data-testid=\"pokecard-${samplePokmon.id}\"]`)).toHaveLength(1) ;
+    
+    /** Using react testing library */
+    // let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
+    // const linkElement = component.getByTestId(`pokecard-${samplePokmon.id}`); 
+    // expect(linkElement).toBeInTheDocument();
     
   })
 
   test('renders Pok image in the rendered component', () => {
-    let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
-    const linkElement = component.getByAltText(`pok-image`); 
-    expect(linkElement).toBeInTheDocument();
-    expect(linkElement).toHaveAttribute('src', samplePokmon.img);
+
+    const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
+    const PokeCardComp = wrapper.find('Pokecard');
+    expect(PokeCardComp.childAt(0).childAt(0).childAt(0).find('img').prop('src')).toEqual (samplePokmon.img) ;
+
+    /** Using react testing library */
+    // let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
+    // const linkElement = component.getByAltText(`pok-image`); 
+    // expect(linkElement).toBeInTheDocument();
+    // expect(linkElement).toHaveAttribute('src', samplePokmon.img);
   })
 
   test('renders passed pok name', () => {
-    let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
-    const linkElement = component.getByTestId(`pokname`); 
-    expect(linkElement.textContent).toEqual(samplePokmon.name);
+
+    const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
+    const PokeCardComp = wrapper.find('Pokecard');
+    expect(PokeCardComp.childAt(0).find('.pok-info').find('.pok-name').text()). toEqual(`${samplePokmon.name}`);
+
+    /** Using react testing library */
+    // let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
+    // const linkElement = component.getByTestId(`pokname`); 
+    // expect(linkElement.textContent).toEqual(samplePokmon.name);
     
   })
 
   test('renders passed pok number', () => {
-    let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
-    const linkElement = component.getByTestId(`pokid`); 
-    expect(linkElement.textContent).toEqual(`#${samplePokmon.num}`);
+
+    const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
+    const PokeCardComp = wrapper.find('Pokecard');
+    expect(PokeCardComp.childAt(0).find('.pok-info').find('.pok-id').text()). toEqual(`#${samplePokmon.num}`);;
+
+    /** Using react testing library */
+    // let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
+    // const linkElement = component.getByTestId(`pokid`); 
+    // expect(linkElement.textContent).toEqual(`#${samplePokmon.num}`);
   })
 
   test('renders pok types for current pokemon', () => {
-    let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
-    const linkElement1 = component.getByText(samplePokmon.type[0]); 
-    expect(linkElement1).toBeInTheDocument();
+    const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
+    const PokeCardComp = wrapper.find('Pokecard');
+    const abilitiesComp = PokeCardComp.childAt(0).find('.pok-info').find('.abilities');
+    expect(abilitiesComp.find(`#ability${samplePokmon.type[0]}`)).toHaveLength(1);
+    expect(abilitiesComp.find(`#ability${samplePokmon.type[1]}`)).toHaveLength(1);
 
-    const linkElement2 = component.getByText(samplePokmon.type[1]); 
-    expect(linkElement2).toBeInTheDocument();
+    /** Using react testing library */
+    // let component = render(<BrowserRouter><PokeCard {...samplePokmon } /></BrowserRouter>);
+    // const linkElement1 = component.getByText(samplePokmon.type[0]); 
+    // expect(linkElement1).toBeInTheDocument();
+
+    // const linkElement2 = component.getByText(samplePokmon.type[1]); 
+    // expect(linkElement2).toBeInTheDocument();
   })
   
 })
