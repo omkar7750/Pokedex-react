@@ -4,10 +4,6 @@ import { mount, shallow } from "enzyme";
 import Pokedex from '../components/Pokedex';
 import { MemoryRouter } from 'react-router-dom';
 import 'whatwg-fetch'
-import { waitForState } from 'enzyme-async-helpers';
-import PokeCard from '../components/pokecard';
-import AdvancedSearch from '../components/advancedsearch';
-import SearchBox from "../components/searchbox";
 
 
 describe("Test Pokedex component", () => {
