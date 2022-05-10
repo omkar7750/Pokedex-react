@@ -6,7 +6,7 @@ export default function Pokecard(props) {
     <li data-testid={`pokecard-${props.id}`} className="li">
       <figure className="pokimg">
         <Link  data-testid={`link-${props.num}`} to={'/details/' + props.id}>
-          <img src={props.img} alt={`pok-image`} />
+          <img className='.pok-card-image' src={props.img} alt={`pok-image`} />
         </Link>
       </figure>
       <div className="pok-info">

@@ -11,14 +11,15 @@ p {
   border-radius: 8px;
   box-shadow: 0 1px 1px black;
   color: #919191;
-    cursor: default;
-    font-size: 187.5%;
-    line-height: 125%;
-    text-transform: none;
-    font-family: "Flexo-Regular",arial,sans-serif;
+  cursor: default;
+  font-size: 187.5%;
+  line-height: 125%;
+  text-transform: none;
+  font-family: "Flexo-Regular",arial,sans-serif;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
 }
 
 .pokedex, #pok-details-container, .evolution-container .evolution-cards .li {
@@ -198,10 +199,6 @@ h5 {
   align-items: center;
 }
 
-.pokedex-filter-tw-list {
-  /* width: 100%; */
-}
-
 .content-block-full {
   clear: both;
   display: block;
@@ -245,9 +242,6 @@ h5 {
   text-align: center;
 }
 
-.pokedex-filter-tw-list li .weakness-filter {
-  /* margin-right: 0; */
-}
 
 .pokedex-filter-tw-list li .type-filter,
 .pokedex-filter-tw-list li .weakness-filter {
@@ -461,9 +455,27 @@ h5 {
   }
  
   100% {
+    transform: rotate(-360deg);
     margin-left: 0;    
+    
   }
 }
+
+
+@keyframes pok-animation-2{
+  
+ 
+
+    0% {transform: rotate(0deg);margin-left:50px;}
+    25% {transform: rotateY(180deg);margin-left:50px;}
+    50% {transform: rotateY(180deg);margin-left:100%;}
+    55% {transform: rotateY(180deg);margin-left:100%;}
+    70% {transform: rotate(0deg);margin-left:100%;}
+    100% {transform: rotate(-360deg);margin-left:50px;}
+    
+    
+}
+
 
 .pok-icon-pokedex {
   margin-left: 50px;
@@ -472,9 +484,9 @@ h5 {
   height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 150px;
-  animation: pok-run 5s linear 2s infinite;
-  transition: left 5s, transform 2s;
+  width: 80px;
+  animation: pok-animation-2 6s linear 1s 2 ;
+  /* transition: left 5s, transform 2s ; */
 }
 
 

@@ -47,7 +47,7 @@ export default function AdvancedSearch(props) {
   };
 
   return (
-    <Accordion data-testid={"advancedSearch"} allowZeroExpanded={true}>
+    <Accordion data-testid={"advancedSearch"} id="advancedSearch" allowZeroExpanded={true}>
       <AccordionItem>
         <AccordionItemHeading>
           <AccordionItemButton>Show Advanced Search</AccordionItemButton>

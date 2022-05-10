@@ -68,7 +68,7 @@ export default class Pokedex extends Component {
   };
 
   componentDidMount() {
-    fetch(config.dataUrl)
+    return fetch(config.dataUrl)
       .then((response) => response.json())
       .then((json) => {
         let typeList = [],
@@ -82,7 +82,7 @@ export default class Pokedex extends Component {
           });
         });
         let typeWeaknessList = [...new Set([...typeList, ...weaknessList])];
-        this.setState({
+        return this.setState({
           pokemons: json.pokemon,
           filteredPoks: json.pokemon,
           typeWeaknessList,
@@ -100,7 +100,7 @@ export default class Pokedex extends Component {
 
     return (
       <div className="pokedex">
-        <h1 className="pokedex-title">Pokédex<span data-testid="pok-animation" className='pok-icon-pokedex'></span></h1>
+        <div className="pokedex-title">Pokédex<span data-testid="pok-animation" className='pok-icon-pokedex'></span></div>
         
         <SearchBox
           nameOrNum={this.state.nameOrNum}

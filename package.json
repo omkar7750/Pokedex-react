@@ -9,7 +9,10 @@
     "react": "18.1.0",
     "react-accessible-accordion": "5.0.0",
     "react-dom": "18.1.0",
-    "react-router-dom": "6.3.0"
+    "react-router-dom": "6.3.0",
+    "enzyme": "^3.11.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "enzyme-to-json": "^3.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,6 +27,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "babel-jest": "^28.0.3",
+    "enzyme-async-helpers": "^0.9.1",
     "react-scripts": "latest"
   },
   "browserslist": {
@@ -36,6 +40,18 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "coverageReporters": [
+      "text"
     ]
   }
 }
