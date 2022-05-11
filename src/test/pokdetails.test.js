@@ -1,19 +1,21 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom'
+// import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+// import '@testing-library/jest-dom'
+import { mount } from "enzyme";
 import PokDetails from '../components/pokdetails';
 import Pokedex from '../components/Pokedex';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { act } from "react-dom/test-utils";
+import { MemoryRouter, Router, Switch, Route, Routes } from 'react-router-dom';
 import 'whatwg-fetch'
-const renderComponent = ({ pokId }) =>
-  render(
-    <MemoryRouter initialEntries={[`/details/${pokId}`]}>
-        <Routes>
-            <Route path="/details/:pokId" element={<PokDetails />}>
+// const renderComponent = ({ pokId }) =>
+//   render(
+//     <MemoryRouter initialEntries={[`/details/${pokId}`]}>
+//         <Routes>
+//             <Route path="/details/:pokId" element={<PokDetails />}>
                 
-            </Route>
-        </Routes>
-    </MemoryRouter>
-  );
+//             </Route>
+//         </Routes>
+//     </MemoryRouter>
+//   );
 
 const samplePokmon = {
     "id": 2,
@@ -52,35 +54,91 @@ const samplePokmon = {
     }]
   }
 
+  const waitForComponentToRender = async (wrapper) => {
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      wrapper.update();
+    });
+ };
+
 describe("Test PokDetails component", () => {
-    test('renders PokDetails component', async() => {
-      const { getByTestId } = renderComponent({ pokId: 2 });
-      const comp = getByTestId('pok-details-container');
+  let wrapperComp;
+
+  beforeEach(() => {
+    wrapperComp = mount(
+          <MemoryRouter initialEntries={[`/details/2`]}>
+                         <Routes>
+                          <Route path={"/details/:pokId"} element={<PokDetails />}>
+                            
+                          </Route>    
+                          </Routes>
+                    </MemoryRouter>
+      );
+  });
+
+  
+  
+
+  test('renders PokDetails component', async() => {
+
       
-      expect(comp).toBeInTheDocument();
+      const PokeDetailsComp = wrapperComp.find('PokDetails');
+      expect(PokeDetailsComp.find(`[data-testid="pok-details-container"]`)).toHaveLength(1) ;
+
+
+      /** Using react testing library */
+      // const { getByTestId } = renderComponent({ pokId: 2 });
+      // const comp = getByTestId('pok-details-container');
+      
+      // expect(comp).toBeInTheDocument();
     })
 
     test("renders Pokemon's number, name, height and weight component", async() => {
-        const { getByTestId, getAllByTestId } = renderComponent({ pokId: 2 });
         
-        await waitFor(() => {
-            const comp = getByTestId('pok-details-pok-num');
-            expect(comp.textContent).toEqual(`#${samplePokmon.num}`);
-            expect(getByTestId('pok-details-pok-height').textContent).toEqual(samplePokmon.height);
-            expect(getByTestId('pok-details-pok-weight').textContent).toEqual(samplePokmon.weight);
-            expect(getAllByTestId(/pok-details-pok-types-/)).toHaveLength(samplePokmon.type.length);
-            expect(getAllByTestId(/pok-details-pok-weaknesses-/)).toHaveLength(samplePokmon.weaknesses.length);
-        })
+      
+      
+      const PokeDetailsComp = wrapperComp.find(PokDetails);
+      await waitForComponentToRender(PokeDetailsComp);
+      await PokeDetailsComp.update();
+      
+      expect(PokeDetailsComp.find(`[data-testid="pok-details-pok-num"]`).text()).toEqual(`#${samplePokmon.num}`) ;
+      expect(PokeDetailsComp.find('.pokedex-pokemon-details').find('.abilities').find('.pok-details-pok-height').text()).toEqual(samplePokmon.height);
+      expect(PokeDetailsComp.find('.pokedex-pokemon-details').find('.abilities').find('.pok-details-pok-weight').text()).toEqual(samplePokmon.weight);
+      
+      const pokemonTypesLength = PokeDetailsComp.find('.pokedex-pokemon-details').find('.abilities').find('.abilities-pokdetails-type-container').render().children().length;
+      const pokemonWeaknessesLength = PokeDetailsComp.find('.pokedex-pokemon-details').find('.abilities').find('.abilities-pokdetails-weakness-container').render().children().length;
+      expect(pokemonTypesLength).toEqual(samplePokmon.type.length);
+      expect(pokemonWeaknessesLength).toEqual(samplePokmon.weaknesses.length);
+
+      /** Using react testing library */
+        // const { getByTestId, getAllByTestId } = renderComponent({ pokId: 2 });
+        
+        // await waitFor(() => {
+        //     const comp = getByTestId('pok-details-pok-num');
+        //     expect(comp.textContent).toEqual(`#${samplePokmon.num}`);
+        //     expect(getByTestId('pok-details-pok-height').textContent).toEqual(samplePokmon.height);
+        //     expect(getByTestId('pok-details-pok-weight').textContent).toEqual(samplePokmon.weight);
+        //     expect(getAllByTestId(/pok-details-pok-types-/)).toHaveLength(samplePokmon.type.length);
+        //     expect(getAllByTestId(/pok-details-pok-weaknesses-/)).toHaveLength(samplePokmon.weaknesses.length);
+        // })
     })
 
     test("renders Pokemon's pre-evolution, current and next evolution", async() => { 
-        
-        const { getByTestId, getAllByTestId } = renderComponent({ pokId: 2 });
-        await waitFor(() => {
-            const comp = getAllByTestId(/pokecard-/);
-            const countToMatch = (samplePokmon.prev_evolution.length || 0) + 1 + (samplePokmon.next_evolution.length || 0);
-            expect(comp).toHaveLength(countToMatch);
-        })
+      const PokeDetailsComp = wrapperComp.find(PokDetails);
+      await waitForComponentToRender(PokeDetailsComp);
+      await PokeDetailsComp.update();
+
+      const evolutionPokCards = PokeDetailsComp.find('.pokedex-pokemon-details').find('.evolution-container').find('.evolution-cards ul').render().find('.li');
+      const countToMatch = (samplePokmon.prev_evolution.length || 0) + 1 + (samplePokmon.next_evolution.length || 0);
+      expect(evolutionPokCards).toHaveLength(countToMatch);
+
+      /** Using react testing library */
+        // const { getByTestId, getAllByTestId } = renderComponent({ pokId: 2 });
+        // await waitFor(() => {
+        //     const comp = getAllByTestId(/pokecard-/);
+        //     const countToMatch = (samplePokmon.prev_evolution.length || 0) + 1 + (samplePokmon.next_evolution.length || 0);
+        //     expect(comp).toHaveLength(countToMatch);
+        // })
     })
 
 

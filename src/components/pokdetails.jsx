@@ -20,7 +20,7 @@ export default function PokDetails() {
   useEffect(() => {
     fetch(config.dataUrl)
       .then((response) => response.json())
-      .then((json) => {
+      .then(async(json) => {
         setPrev_evolution([]);
         setNext_evolution([]);
         let selectedPok = json.pokemon.find((pok) => pok.id == pokId);
@@ -70,37 +70,40 @@ export default function PokDetails() {
               <div className="height-weight">
                 <div>
                   <div className="pokdetails-cat-title">Height</div>
-                  <div data-testid="pok-details-pok-height">{pok.height}</div>
+                  <div className='pok-details-pok-height' data-testid="pok-details-pok-height">{pok.height}</div>
                 </div>
                 <div>
                   <div className="pokdetails-cat-title">Weight</div>
-                  <div data-testid="pok-details-pok-weight">{pok.weight}</div>
+                  <div className='pok-details-pok-weight' data-testid="pok-details-pok-weight">{pok.weight}</div>
                 </div>
               </div>
 
               <div className="pokdetails-cat-title">Type</div>
+              <div className='abilities-pokdetails-type-container'>
               {pok.type &&
                 pok.type.map((t, tind) => (
                   <span
                     data-testid={`pok-details-pok-types-${tind}`}
                     key={`pok-type-${tind}`}
-                    className="pill background-color-dragon"
+                    className="pill background-color-dragon pok-details-pokemon-type"
                   >
                     {t}
                   </span>
                 ))}
-
+              </div>
               <div className="pokdetails-cat-title">Weaknesses</div>
-              {pok.weaknesses &&
+              <div className='abilities-pokdetails-weakness-container'>
+                {pok.weaknesses &&
                 pok.weaknesses.map((t, tind) => (
                   <span
                     data-testid={`pok-details-pok-weaknesses-${tind}`}
                     key={`pok-weaknesses-${tind}`}
-                    className="pill background-color-dragon"
+                    className="pill background-color-dragon pok-details-pokemon-weakness"
                   >
                     {t}
                   </span>
                 ))}
+                </div>
             </div>
           </div>
           <div className="evolution-container">
