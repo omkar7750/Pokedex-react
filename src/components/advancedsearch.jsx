@@ -70,7 +70,7 @@ export default function AdvancedSearch(props) {
                 {props.typeWeaknessList.map((tw, index) => {
                   return (
                     <li key={`pok-type-weak-filter-opt-${index}`}>
-                      <span  data-testid="ability" className="ability-adv-filter pill background-color-dragon">{tw}</span>
+                      <span  data-testid="ability" className={`ability-adv-filter pill background-color-${tw.toLowerCase()}`}>{tw}</span>
                       <span
                         style={{
                           backgroundColor: filtertypes.includes(tw)
@@ -105,10 +105,10 @@ export default function AdvancedSearch(props) {
               </ul>
             </div>
             <div>
-              <button data-testid="resetBtn" className='mresetbtnadv' onClick={handleReset} id="msearchbtn">
+              <button data-testid="resetBtn" className='mresetbtnadv' onClick={handleReset}>
                 Reset
               </button>
-              <button data-testid="advSearchBtn" className='msearchbtnadv' onClick={handleSearch} id="msearchbtn">
+              <button data-testid="advSearchBtn" className='msearchbtnadv' onClick={handleSearch}>
                 Search
               </button>
             </div>

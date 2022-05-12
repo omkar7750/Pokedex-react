@@ -16,7 +16,7 @@ export default function Pokecard(props) {
           {props.type.map((t, tindex) => (
             <span
               key={`ability-${tindex}`}
-              className="pill background-color-dragon"
+              className={`pill background-color-${t.toLowerCase()}`}
               id = {`ability${t}`}
             >
               {t}

@@ -70,11 +70,11 @@ export default function PokDetails() {
               <div className="height-weight">
                 <div>
                   <div className="pokdetails-cat-title">Height</div>
-                  <div className='pok-details-pok-height' data-testid="pok-details-pok-height">{pok.height}</div>
+                  <div className='pok-details-pok-height pokdetails-cat-value' data-testid="pok-details-pok-height">{pok.height}</div>
                 </div>
                 <div>
                   <div className="pokdetails-cat-title">Weight</div>
-                  <div className='pok-details-pok-weight' data-testid="pok-details-pok-weight">{pok.weight}</div>
+                  <div className='pok-details-pok-weight pokdetails-cat-value' data-testid="pok-details-pok-weight">{pok.weight}</div>
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ export default function PokDetails() {
                   <span
                     data-testid={`pok-details-pok-types-${tind}`}
                     key={`pok-type-${tind}`}
-                    className="pill background-color-dragon pok-details-pokemon-type"
+                    className={`pill background-color-${t.toLowerCase()} pok-details-pokemon-type`}
                   >
                     {t}
                   </span>
@@ -98,7 +98,7 @@ export default function PokDetails() {
                   <span
                     data-testid={`pok-details-pok-weaknesses-${tind}`}
                     key={`pok-weaknesses-${tind}`}
-                    className="pill background-color-dragon pok-details-pokemon-weakness"
+                    className={`pill background-color-${t.toLowerCase()} pok-details-pokemon-weakness`}
                   >
                     {t}
                   </span>
@@ -152,8 +152,8 @@ export default function PokDetails() {
             </div>
           </div>
           <Link className='backbtnlink' to={'/'}>
-            <button id="msearchbtn" className="backbtn">
-              <FontAwesomeIcon icon={faChevronLeft} />
+            <button  className="backbtn">
+              <FontAwesomeIcon className='back-btn-chevron-left' icon={faChevronLeft} />
               Back To Home
             </button>
           </Link>

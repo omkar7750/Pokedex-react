@@ -133,12 +133,13 @@ h5 {
   line-height: 18px;
   max-width: 110px;
   margin: 0 1.5625% 0 0;
-  width: 38.4375%;
+  width: 32.29%;
   float: left;
   text-transform: none;
   font-size: 11px;
   text-align: center;
   margin-bottom: 4px;
+ 
 }
 
 .background-color-dragon {
@@ -170,6 +171,48 @@ h5 {
 #msearchbtn:hover {
   background-color: #313131;
   color: white;
+}
+
+.msearchbtnadv {
+  width: 20%;
+  max-width: 120px;
+  padding: 12px 20px;
+  margin: 8px 3px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  background-color: #ee6b2f;
+  border-color: #ee6b2f;
+  color: #fff;
+  font-family: "Flexo-Demi",arial,sans-serif;
+  font-size: 100%;
+}
+
+.msearchbtnadv:hover {
+  background-color: #da471b;
+}
+
+.mresetbtnadv {
+  width: 20%;
+  max-width: 120px;
+  padding: 12px 20px;
+  margin: 8px 3px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  color: #fff;
+  background-color: #8b8b8b;
+  border-color: #8b8b8b;
+  font-family: "Flexo-Demi",arial,sans-serif;
+  font-size: 100%;
+}
+
+.mresetbtnadv:hover {
+  background-color: #333232;
 }
 
 #mfilterLabel {
@@ -333,9 +376,16 @@ h5 {
 
 .pokedex-pokemon-profile,
 .pokedex-pokemon-details-right {
-  display: block;
-  float: left;
+  /* display: block;
+  float: left; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50%;
+}
+
+.pokedex-pokemon-details {
+  background-color: #fff;
 }
 
 .section {
@@ -349,20 +399,26 @@ h5 {
 .column-6 {
   display: flex;
   margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .column-6 .abilities {
-  width: 50%;
+  width: 42%;
   padding: 20px;
+  font-family: "Flexo-Medium",arial,sans-serif;
+  /* background-color: #fff; */
 }
 
 .column-6 .abilities .height-weight {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 25px;
   background-color: #30a7d7;
   padding: 15px;
   border-radius: 5px;
+  font-size: larger;
 }
 
 .column-6 .abilities .pokdetails-cat-title {
@@ -373,6 +429,9 @@ h5 {
   margin-bottom: 0.5em;
   text-transform: none;
   width: 100%;
+  font-size: 125%;
+  line-height: 125%;
+  margin: 0.5em 0;
 }
 
 .evolution-container {
@@ -383,7 +442,7 @@ h5 {
 }
 .evolution-container .evolution-title {
   font-family: 'Roboto', arial, sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   color: rgb(19, 9, 9);
   margin: 1em 0 0 1em;
   text-transform: none;
@@ -398,7 +457,9 @@ h5 {
 .evolution-container ul {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-left: 0;
 }
 
 .evolution-container ul .li {
@@ -407,7 +468,7 @@ h5 {
 
 .evolution-container .evolution-cards ul .li-chevron {
   padding-top: 55px;
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 .evolution-container ul .li:hover {
@@ -417,14 +478,38 @@ h5 {
 }
 
 .backbtn {
+  
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 3px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 180px !important;
+  justify-content: center;
+  max-width: 180px;
+  background-color: #30a7d7 ;
+  color: #fff;
+  font-family: "Flexo-Demi",arial,sans-serif;
+  border: none;
+  font-size: 100%;
+}
+
+.backbtn:hover {
+  background-color: #2297c6;
+}
+
+.back-btn-chevron-left {
+  margin-right: 7px;
 }
 
 .backbtnlink {
   text-decoration: none;
+}
+
+.profile-images {
+  width: 100%;
 }
 
 .profile-images img {
@@ -515,10 +600,164 @@ h5 {
   /* transition: left 5s, transform 2s ; */
 }
 
+.pokdetails-cat-value {
+  font-size: x-large;
+  color: #fff;
+}
+
+.pok-details-pokemon-type, .pok-details-pokemon-weakness {
+  border-radius: 5px;
+  margin: 0.5em 0 0 0;
+  padding: 0;
+  text-align: center;
+  padding: 7px;
+  font-size: 110%;
+}
+
+.background-color-bug {
+  background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
+    background-color: #729f3f;
+    color: #fff;
+}
+
+.background-color-fairy {
+  background: linear-gradient(180deg, #fdb9e9 50%, #fdb9e9 50%);
+  background-color: #fdb9e9;
+  color: #212121;
+}
+
+.background-color-fighting {
+  background: linear-gradient(180deg, #d56723 50%, #d56723 50%);
+    background-color: #d56723;
+    color: #fff;
+}
+
+.background-color-fire {
+  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+  background-color: #fd7d24;
+  color: #fff;
+}
+
+.background-color-flying {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+    background-color: #3dc7ef;
+    color: #212121;
+}
+
+.background-color-ghost{
+  background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
+    background-color: #7b62a3;
+    color: #fff;
+}
+
+.background-color-grass {
+  background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
+    background-color: #9bcc50;
+    color: #212121;
+}
+
+.background-color-ground {
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+    background-color: #f7de3f;
+    color: #212121;
+}
+
+.background-color-electric {
+  background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
+    background-color: #eed535;
+    color: #212121;
+}
+
+.background-color-ice {
+  background: linear-gradient(180deg, #51c4e7 50%, #51c4e7 50%);
+    background-color: #51c4e7;
+    color: #212121;
+}
+
+.background-color-normal {
+  background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
+    background-color: #a4acaf;
+    color: #212121;
+}
+
+.background-color-poison {
+  background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
+    background-color: #b97fc9;
+    color: #fff;
+}
+
+.background-color-psychic {
+  background: linear-gradient(180deg, #f366b9 50%, #f366b9 50%);
+    background-color: #f366b9;
+    color: #fff;
+}
+
+.background-color-rock {
+  background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
+    background-color: #a38c21;
+    color: #fff;
+}
+
+.background-color-steel {
+  background: linear-gradient(180deg, #9eb7b8 50%, #9eb7b8 50%);
+    background-color: #9eb7b8;
+    color: #212121;
+}
+
+.background-color-water {
+  background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
+    background-color: #4592c4;
+    color: #fff;
+}
+
+
+
+
+
+
+
 @media screen and (min-width: 474px) and (max-width: 657px) {
   .pokedex ul .li {
     width: 45%;
   }
+}
+
+@media screen and (max-width: 522px) {
+  .column-6 .abilities, .pokedex-pokemon-profile {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .column-6 .abilities {
+    margin-top: 10px;
+  }
+
+  
+
+  .backbtn {
+    width: auto;
+  }
+
+  .evolution-title {
+    text-align: center;
+    font-size: 170%;
+  }
+
+  .evolution-cards .pokimg {
+    display: flex;
+    justify-content: center;
+  }
+
+  .evolution-cards ul .li {
+    width: 100%;
+  }
+
+  .evolution-cards ul .li-chevron {
+    padding-bottom: 55px;
+    transform: rotate(90deg);
+  }
+   
+
 }
 
 @media screen and (max-width: 474px) {
@@ -534,12 +773,31 @@ h5 {
   #msearchbtn {
     width: 14%;
   }
+  .backbtn, .column-6 .abilities .height-weight  {
+    font-size: small;
+  }
+
+  .pokdetails-cat-value {
+    font-size: large;
+  }
 }
 
 @media screen and (max-width: 370px) {
   #msearchbtn {
     font-size: x-small;
     width: 14%;
+  }
+
+  #pokIdName {
+    font-size: larger;
+  }
+
+  .msearchbtnadv, .mresetbtnadv, .backbtn, .column-6 .abilities .height-weight, .pokdetails-cat-title  {
+    font-size: small;
+  }
+
+  .pokdetails-cat-value {
+    font-size: large;
   }
 
   .pokedex-filter-tw-list li .pill {
@@ -559,6 +817,10 @@ h5 {
     font-size: 120%;
   }
 
+  #pokIdName {
+    font-size: larger;
+  }
+
   .adv-title-container {
     font-size: 70%;
   }
@@ -568,10 +830,33 @@ h5 {
     font-size: small;
   }
 
+  .msearchbtnadv, .mresetbtnadv, .backbtn, .column-6 .abilities .height-weight, .pokdetails-cat-title  {
+    font-size: small;
+  }
+
+  .pokdetails-cat-value {
+    font-size: large;
+  }
+
   .pokedex-filter-tw-list li .type-filter,
   .pokedex-filter-tw-list li .weakness-filter {
     font-size: small;
     font-weight: 400;
     width: 20px;
+  }
+}
+
+@media screen and (max-width: 200px) {
+
+  #pokIdName {
+    font-size: medium;
+  }
+
+  .evolution-title  {
+    font-size: large;
+  }
+
+  .evolution-cards ul li .pok-name {
+    font-size: medium;
   }
 }
