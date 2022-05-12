@@ -139,7 +139,6 @@ h5 {
   font-size: 11px;
   text-align: center;
   margin-bottom: 4px;
- 
 }
 
 .background-color-dragon {
@@ -186,7 +185,7 @@ h5 {
   background-color: #ee6b2f;
   border-color: #ee6b2f;
   color: #fff;
-  font-family: "Flexo-Demi",arial,sans-serif;
+  font-family: 'Flexo-Demi', arial, sans-serif;
   font-size: 100%;
 }
 
@@ -207,7 +206,7 @@ h5 {
   color: #fff;
   background-color: #8b8b8b;
   border-color: #8b8b8b;
-  font-family: "Flexo-Demi",arial,sans-serif;
+  font-family: 'Flexo-Demi', arial, sans-serif;
   font-size: 100%;
 }
 
@@ -358,7 +357,7 @@ h5 {
 } */
 
 .search-box-search-btn {
-  background: url("../public/input-search-bg.png");
+  background: url('../public/input-search-bg.png');
   background-color: #ee6b2f;
   background-repeat: no-repeat;
   background-position: center;
@@ -385,7 +384,7 @@ h5 {
 }
 
 .pokedex-pokemon-details {
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .section {
@@ -406,7 +405,7 @@ h5 {
 .column-6 .abilities {
   width: 42%;
   padding: 20px;
-  font-family: "Flexo-Medium",arial,sans-serif;
+  font-family: 'Flexo-Medium', arial, sans-serif;
   /* background-color: #fff; */
 }
 
@@ -478,7 +477,6 @@ h5 {
 }
 
 .backbtn {
-  
   width: 15%;
   padding: 12px 20px;
   margin: 8px 3px;
@@ -489,9 +487,9 @@ h5 {
   align-items: center;
   justify-content: center;
   max-width: 180px;
-  background-color: #30a7d7 ;
+  background-color: #30a7d7;
   color: #fff;
-  font-family: "Flexo-Demi",arial,sans-serif;
+  font-family: 'Flexo-Demi', arial, sans-serif;
   border: none;
   font-size: 100%;
 }
@@ -605,7 +603,8 @@ h5 {
   color: #fff;
 }
 
-.pok-details-pokemon-type, .pok-details-pokemon-weakness {
+.pok-details-pokemon-type,
+.pok-details-pokemon-weakness {
   border-radius: 5px;
   margin: 0.5em 0 0 0;
   padding: 0;
@@ -616,8 +615,8 @@ h5 {
 
 .background-color-bug {
   background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
-    background-color: #729f3f;
-    color: #fff;
+  background-color: #729f3f;
+  color: #fff;
 }
 
 .background-color-fairy {
@@ -628,8 +627,8 @@ h5 {
 
 .background-color-fighting {
   background: linear-gradient(180deg, #d56723 50%, #d56723 50%);
-    background-color: #d56723;
-    color: #fff;
+  background-color: #d56723;
+  color: #fff;
 }
 
 .background-color-fire {
@@ -640,81 +639,75 @@ h5 {
 
 .background-color-flying {
   background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-    background-color: #3dc7ef;
-    color: #212121;
+  background-color: #3dc7ef;
+  color: #212121;
 }
 
-.background-color-ghost{
+.background-color-ghost {
   background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
-    background-color: #7b62a3;
-    color: #fff;
+  background-color: #7b62a3;
+  color: #fff;
 }
 
 .background-color-grass {
   background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
-    background-color: #9bcc50;
-    color: #212121;
+  background-color: #9bcc50;
+  color: #212121;
 }
 
 .background-color-ground {
   background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-    background-color: #f7de3f;
-    color: #212121;
+  background-color: #f7de3f;
+  color: #212121;
 }
 
 .background-color-electric {
   background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
-    background-color: #eed535;
-    color: #212121;
+  background-color: #eed535;
+  color: #212121;
 }
 
 .background-color-ice {
   background: linear-gradient(180deg, #51c4e7 50%, #51c4e7 50%);
-    background-color: #51c4e7;
-    color: #212121;
+  background-color: #51c4e7;
+  color: #212121;
 }
 
 .background-color-normal {
   background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
-    background-color: #a4acaf;
-    color: #212121;
+  background-color: #a4acaf;
+  color: #212121;
 }
 
 .background-color-poison {
   background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
-    background-color: #b97fc9;
-    color: #fff;
+  background-color: #b97fc9;
+  color: #fff;
 }
 
 .background-color-psychic {
   background: linear-gradient(180deg, #f366b9 50%, #f366b9 50%);
-    background-color: #f366b9;
-    color: #fff;
+  background-color: #f366b9;
+  color: #fff;
 }
 
 .background-color-rock {
   background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
-    background-color: #a38c21;
-    color: #fff;
+  background-color: #a38c21;
+  color: #fff;
 }
 
 .background-color-steel {
   background: linear-gradient(180deg, #9eb7b8 50%, #9eb7b8 50%);
-    background-color: #9eb7b8;
-    color: #212121;
+  background-color: #9eb7b8;
+  color: #212121;
 }
 
 .background-color-water {
   background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
-    background-color: #4592c4;
-    color: #fff;
+  background-color: #4592c4;
+  color: #fff;
 }
-
-
-
-
-
-
 
 @media screen and (min-width: 474px) and (max-width: 657px) {
   .pokedex ul .li {
@@ -723,7 +716,8 @@ h5 {
 }
 
 @media screen and (max-width: 522px) {
-  .column-6 .abilities, .pokedex-pokemon-profile {
+  .column-6 .abilities,
+  .pokedex-pokemon-profile {
     width: 100%;
     padding: 0px;
   }
@@ -731,8 +725,6 @@ h5 {
   .column-6 .abilities {
     margin-top: 10px;
   }
-
-  
 
   .backbtn {
     width: auto;
@@ -758,8 +750,6 @@ h5 {
     padding-bottom: 55px;
     transform: rotate(90deg);
   }
-   
-
 }
 
 @media screen and (max-width: 474px) {
@@ -775,7 +765,8 @@ h5 {
   #msearchbtn {
     width: 14%;
   }
-  .backbtn, .column-6 .abilities .height-weight  {
+  .backbtn,
+  .column-6 .abilities .height-weight {
     font-size: small;
   }
 
@@ -794,7 +785,11 @@ h5 {
     font-size: larger;
   }
 
-  .msearchbtnadv, .mresetbtnadv, .backbtn, .column-6 .abilities .height-weight, .pokdetails-cat-title  {
+  .msearchbtnadv,
+  .mresetbtnadv,
+  .backbtn,
+  .column-6 .abilities .height-weight,
+  .pokdetails-cat-title {
     font-size: small;
   }
 
@@ -832,7 +827,11 @@ h5 {
     font-size: small;
   }
 
-  .msearchbtnadv, .mresetbtnadv, .backbtn, .column-6 .abilities .height-weight, .pokdetails-cat-title  {
+  .msearchbtnadv,
+  .mresetbtnadv,
+  .backbtn,
+  .column-6 .abilities .height-weight,
+  .pokdetails-cat-title {
     font-size: small;
   }
 
@@ -849,12 +848,11 @@ h5 {
 }
 
 @media screen and (max-width: 200px) {
-
   #pokIdName {
     font-size: medium;
   }
 
-  .evolution-title  {
+  .evolution-title {
     font-size: large;
   }
 
