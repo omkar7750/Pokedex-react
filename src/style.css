@@ -15,14 +15,16 @@ p {
   font-size: 187.5%;
   line-height: 125%;
   text-transform: none;
-  font-family: "Flexo-Regular",arial,sans-serif;
+  font-family: 'Flexo-Regular', arial, sans-serif;
 
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
 }
 
-.pokedex, #pok-details-container, .evolution-container .evolution-cards .li {
+.pokedex,
+#pok-details-container,
+.evolution-container .evolution-cards .li {
   background: url('../public/container_bg.png');
 }
 
@@ -30,7 +32,6 @@ p {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .pokedex-filter-tw-list {
@@ -45,16 +46,17 @@ p {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: gray; 
+  background: gray;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #333333; 
+  background: #333333;
 }
 
 .searchbox-container {
   padding-left: 15px;
+  margin-top: 10px;
 }
 
 .pokedex ul .li {
@@ -75,9 +77,9 @@ p {
   }
 }
 .pokedex ul .li:hover {
-    animation: animation 0.3s 1 linear;
-    box-shadow: 0px 1px 1px black;
-    border-radius: 8px;
+  animation: animation 0.3s 1 linear;
+  box-shadow: 0px 1px 1px black;
+  border-radius: 8px;
 }
 
 .pokedex ul .li img {
@@ -161,7 +163,7 @@ h5 {
   border-radius: 5px;
   cursor: pointer;
   display: inline-flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 #msearchbtn:hover {
@@ -242,7 +244,6 @@ h5 {
   text-align: center;
 }
 
-
 .pokedex-filter-tw-list li .type-filter,
 .pokedex-filter-tw-list li .weakness-filter {
   font-family: 'Flexo-Bold', arial, sans-serif;
@@ -267,7 +268,7 @@ h5 {
   color: #6cc06c;
   border-radius: 8px;
   max-width: 1024px;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .pokemon-number {
@@ -395,10 +396,9 @@ h5 {
 
 .evolution-container ul .li:hover {
   animation: animation 0.3s 1 linear;
-    box-shadow: 0px 1px 1px black;
-    border-radius: 8px;
+  box-shadow: 0px 1px 1px black;
+  border-radius: 8px;
 }
-
 
 .backbtn {
   display: flex;
@@ -443,39 +443,48 @@ h5 {
   display: block;
 }
 
-
 @keyframes pok-run {
   0% {
     margin-left: 0;
-    transform: rotateY(180deg); 
+    transform: rotateY(180deg);
   }
-  
-  50% { 
-    margin-left: calc(100% );
+
+  50% {
+    margin-left: calc(100%);
   }
- 
+
   100% {
     transform: rotate(-360deg);
-    margin-left: 0;    
-    
+    margin-left: 0;
   }
 }
 
-
-@keyframes pok-animation-2{
-  
- 
-
-    0% {transform: rotate(0deg);margin-left:50px;}
-    25% {transform: rotateY(180deg);margin-left:50px;}
-    50% {transform: rotateY(180deg);margin-left:100%;}
-    55% {transform: rotateY(180deg);margin-left:100%;}
-    70% {transform: rotate(0deg);margin-left:100%;}
-    100% {transform: rotate(-360deg);margin-left:50px;}
-    
-    
+@keyframes pok-animation-2 {
+  0% {
+    transform: rotate(0deg);
+    margin-left: 50px;
+  }
+  25% {
+    transform: rotateY(180deg);
+    margin-left: 50px;
+  }
+  50% {
+    transform: rotateY(180deg);
+    margin-left: 100%;
+  }
+  55% {
+    transform: rotateY(180deg);
+    margin-left: 100%;
+  }
+  70% {
+    transform: rotate(0deg);
+    margin-left: 100%;
+  }
+  100% {
+    transform: rotate(-360deg);
+    margin-left: 50px;
+  }
 }
-
 
 .pok-icon-pokedex {
   margin-left: 50px;
@@ -485,55 +494,50 @@ h5 {
   background-size: contain;
   background-repeat: no-repeat;
   width: 80px;
-  animation: pok-animation-2 6s linear 1s 2 ;
+  animation: pok-animation-2 6s linear 1s 2;
   /* transition: left 5s, transform 2s ; */
 }
 
-
-@media screen and (min-width: 474px) and (max-width: 657px){
-  .pokedex ul .li  {
+@media screen and (min-width: 474px) and (max-width: 657px) {
+  .pokedex ul .li {
     width: 45%;
   }
 }
 
-@media screen and (max-width: 474px){
-  .pokedex ul .li  {
+@media screen and (max-width: 474px) {
+  .pokedex ul .li {
     width: 70%;
-    
   }
   #mfilter {
     width: 50%;
   }
-  
 }
 
-@media screen and (min-width: 370px) and (max-width: 474px){
+@media screen and (min-width: 370px) and (max-width: 474px) {
   #msearchbtn {
     width: 24%;
   }
- 
 }
 
-@media screen and (max-width: 370px){
+@media screen and (max-width: 370px) {
   #msearchbtn {
     font-size: x-small;
     width: 24%;
   }
- 
+
   .pokedex-filter-tw-list li .pill {
     width: 40%;
   }
 
-  .pokedex-filter-tw-list li .type-filter, .pokedex-filter-tw-list li .weakness-filter {
+  .pokedex-filter-tw-list li .type-filter,
+  .pokedex-filter-tw-list li .weakness-filter {
     font-size: small;
     font-weight: 400;
     width: 20px;
   }
-
 }
 
-
-@media screen and (max-width: 254px){
+@media screen and (max-width: 254px) {
   #mfilterLabel {
     font-size: 120%;
   }
@@ -547,11 +551,10 @@ h5 {
     font-size: small;
   }
 
-  .pokedex-filter-tw-list li .type-filter, .pokedex-filter-tw-list li .weakness-filter {
+  .pokedex-filter-tw-list li .type-filter,
+  .pokedex-filter-tw-list li .weakness-filter {
     font-size: small;
     font-weight: 400;
     width: 20px;
   }
-
-  
 }
