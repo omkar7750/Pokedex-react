@@ -13,7 +13,8 @@ export default function SearchBox(props) {
 
   return (
     <div className="searchbox-container">
-      <label htmlFor="mfilter" id="mfilterLabel">Name or Number</label>
+      <div id="mfilterLabel">Name or Number</div>
+      <div className='search-box-controls-container'>
       <input
         type="text"
         onChange={(e) => {
@@ -25,9 +26,9 @@ export default function SearchBox(props) {
         data-testid="searchbox-input"
         name="mainfilter"
       />
-      <button onClick={handleSearch} data-testid={"searchboxSearchbtn"} id="msearchbtn">
-        Search
-      </button>
+      <button onClick={handleSearch} className="search-box-search-btn" data-testid={"searchboxSearchbtn"} id="msearchbtn">
+      
+      </button></div>
     </div>
   );
 }

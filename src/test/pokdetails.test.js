@@ -56,7 +56,7 @@ const samplePokmon = {
 
   const waitForComponentToRender = async (wrapper) => {
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
       wrapper.update();
     });
  };

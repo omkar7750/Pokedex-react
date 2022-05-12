@@ -156,7 +156,8 @@ h5 {
 }
 
 #msearchbtn {
-  width: 120px;
+  max-width: 80px;
+  width: 15%;
   padding: 12px 20px;
   margin: 8px 3px;
   box-sizing: border-box;
@@ -173,10 +174,14 @@ h5 {
 
 #mfilterLabel {
   font-family: 'Flexo-Regular', arial, sans-serif;
-  float: left;
+  /* float: left; */
   font-size: 167.5%;
   text-transform: none;
-  width: 100%;
+  /* width: 100%; */
+}
+
+.search-box-controls-container {
+  display: flex;
 }
 
 .adv-filter-title {
@@ -309,6 +314,17 @@ h5 {
   padding-bottom: 30px;
 } */
 
+.search-box-search-btn {
+  background: url("../public/input-search-bg.png");
+  background-color: #ee6b2f;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.search-box-search-btn:hover {
+  background-color: #da471b !important;
+}
+
 .pokedex-pokemon-profile {
   background-color: #f2f2f2;
   border-radius: 5px;
@@ -404,6 +420,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 180px !important;
 }
 
 .backbtnlink {
@@ -515,14 +532,14 @@ h5 {
 
 @media screen and (min-width: 370px) and (max-width: 474px) {
   #msearchbtn {
-    width: 24%;
+    width: 14%;
   }
 }
 
 @media screen and (max-width: 370px) {
   #msearchbtn {
     font-size: x-small;
-    width: 24%;
+    width: 14%;
   }
 
   .pokedex-filter-tw-list li .pill {
