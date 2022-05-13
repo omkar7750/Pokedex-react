@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default function App() {
   return (
-    <div>
+    <div className="pok-app-container">
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Pokedex />}></Route>

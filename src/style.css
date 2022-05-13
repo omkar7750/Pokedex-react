@@ -22,9 +22,17 @@ p {
   align-items: center;
 }
 
-.pokedex,
 #pok-details-container,
 .evolution-container .evolution-cards .li {
+  background: url('../public/container_bg.png');
+}
+
+.pokedex {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.pok-app-container {
   background: url('../public/container_bg.png');
 }
 
@@ -57,6 +65,11 @@ p {
 .searchbox-container {
   padding-left: 15px;
   margin-top: 10px;
+}
+
+.pokedex .poke-list-container ul {
+  justify-content: center;
+  padding-left: 0;
 }
 
 .pokedex ul .li {
@@ -401,7 +414,7 @@ h5 {
   display: flex;
   margin-top: 15px;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 .column-6 .abilities {
