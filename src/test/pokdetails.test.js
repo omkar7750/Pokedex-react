@@ -17,6 +17,8 @@ import 'whatwg-fetch'
 //     </MemoryRouter>
 //   );
 
+global.scrollTo = jest.fn();
+
 const samplePokmon = {
     "id": 2,
     "num": "002",

@@ -48,6 +48,7 @@ export default function PokDetails() {
         }
 
         setPok(selectedPok);
+        global.scrollTo(0, 0)
       });
   }, [pokId]);
 
@@ -60,11 +61,11 @@ export default function PokDetails() {
         </div>
         <section className="section pokedex-pokemon-details">
           <div className="column-6 push-1">
-            <div key={`pok-profile-image-${pok.name}`} className="pokedex-pokemon-profile">
+            {pok.img && <div key={`pok-profile-image-${pok.name}`} className="pokedex-pokemon-profile">
               <div className="profile-images">
                 <img className="active" src={pok.img} alt={pok.name} />
               </div>
-            </div>
+            </div>}
 
             <div className="abilities">
               <div className="height-weight">
