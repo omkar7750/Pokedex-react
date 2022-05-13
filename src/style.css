@@ -400,9 +400,6 @@ h5 {
   width: 50%;
 }
 
-.pokedex-pokemon-details {
-  /* background-color: #fff; */
-}
 
 .section {
   display: block;
@@ -792,10 +789,10 @@ h5 {
 
 @media screen and (max-width: 474px) {
   .pokedex ul .li {
-    width: 70%;
+    width: 95%;
   }
   #mfilter {
-    width: 50%;
+    width: 70%;
   }
 }
 
