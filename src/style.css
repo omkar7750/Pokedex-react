@@ -386,6 +386,8 @@ h5 {
   background-color: #f2f2f2;
   border-radius: 5px;
   position: relative;
+  animation: pokdetails-pokimg 1.5s 1 ease-in-out;
+  box-shadow: 0 4px 3px grey;
 }
 
 .pokedex-pokemon-profile,
@@ -450,7 +452,8 @@ h5 {
 
 .evolution-container {
   margin-top: 20px;
-  background-color: #b1c9b1;
+  /* background-color: #b1c9b1; */
+  background: url('../public/body_gray_bg.png');
   padding: 5px;
   border-radius: 5px;
 }
@@ -571,6 +574,24 @@ h5 {
   100% {
     transform: rotate(-360deg);
     margin-left: 0;
+  }
+}
+
+@keyframes pokdetails-pokimg {
+  0% {
+    transform: rotate(20deg) scale(0.5, .5);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-20deg) scale(0.5, .5);
+  }
+
+  100% {
+    transform: rotate(0deg);
   }
 }
 

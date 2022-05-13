@@ -60,7 +60,7 @@ export default function PokDetails() {
         </div>
         <section className="section pokedex-pokemon-details">
           <div className="column-6 push-1">
-            <div className="pokedex-pokemon-profile">
+            <div key={`pok-profile-image-${pok.name}`} className="pokedex-pokemon-profile">
               <div className="profile-images">
                 <img className="active" src={pok.img} alt={pok.name} />
               </div>
