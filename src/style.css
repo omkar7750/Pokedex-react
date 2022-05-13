@@ -749,8 +749,9 @@ h5 {
     margin-right: 20%;
   }
 
-  .evolution-cards ul .li-chevron {
-    padding-bottom: 55px;
+  .evolution-container .evolution-cards ul .li-chevron {
+    padding-bottom: 10px;
+    padding-top: 10px;
     transform: rotate(90deg);
   }
 }
