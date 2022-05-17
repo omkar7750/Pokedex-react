@@ -7,6 +7,14 @@ import 'whatwg-fetch'
 
 
 describe("Test Pokedex component", () => {
+
+  test('Test snapshot', () => {
+    
+    const wrapper =mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    const PokedexComp = wrapper.find('Pokedex');
+    expect(PokedexComp).toMatchSnapshot();
+  });
+
   test('renders Pokedex component', () => {
     const wrapper =mount(<MemoryRouter><Pokedex /></MemoryRouter>);
     expect(wrapper.find('Pokedex').childAt(0).find(".pokedex-title").text()).toEqual("Pokédex");

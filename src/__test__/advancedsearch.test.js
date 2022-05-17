@@ -12,6 +12,15 @@ const sampleProps = {
 const backgroundColor = (element) => window.getComputedStyle(element).backgroundColor;
 
 describe('Test Advanced search component', ()=>{
+
+    test('Test snapshot', () => {
+    
+        const wrapper =mount(<AdvancedSearch {...sampleProps} />);
+        const AdvancedSearchComp = wrapper.find('AdvancedSearch');
+        expect(AdvancedSearchComp).toMatchSnapshot();
+    
+    });
+
     test('renders PokeCard component', () => {
 
         const wrapper =mount(<AdvancedSearch {...sampleProps} />);

@@ -38,6 +38,13 @@ const samplePokmon = {
   }
 
 describe("Test PokeCard component", () => {
+  test('Test snapshot', () => {
+    
+    const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
+    const PokeCardComp = wrapper.find('Pokecard');
+    expect(PokeCardComp).toMatchSnapshot();
+
+  });
   test('renders PokeCard component', () => {
     const wrapper =mount(<MemoryRouter><PokeCard {...samplePokmon } /></MemoryRouter>);
     const PokeCardComp = wrapper.find('Pokecard');

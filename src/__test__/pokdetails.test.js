@@ -78,7 +78,12 @@ describe("Test PokDetails component", () => {
       );
   });
 
-  
+  test('Test snapshot', () => {
+    
+    const PokeDetailsComp = wrapperComp.find('PokDetails');
+    expect(PokeDetailsComp).toMatchSnapshot();
+
+  });
   
 
   test('renders PokDetails component', async() => {

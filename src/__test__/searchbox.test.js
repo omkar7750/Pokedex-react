@@ -7,6 +7,15 @@ import { mount } from "enzyme";
 
 
 describe("Test SearchBox component", () => {
+
+
+  test('Test snapshot', () => {
+    
+    const wrapper =mount(<SearchBox />);
+    expect(wrapper.find('SearchBox')).toMatchSnapshot();
+
+  });
+
   test('renders SearchBox component', () => {
     
     const wrapper =mount(<SearchBox />);
