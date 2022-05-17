@@ -74,12 +74,18 @@ describe('Test Advanced search component', ()=>{
 
         
         AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).simulate('click');
-        // console.log(typeSelectorBtn.at(0).prop('style'), typeSelectorBtn.at(0).html())
         expect(AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).props().style.backgroundColor).toBe("#f2f2f2");
 
         AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).simulate('click');
-        console.log(AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).prop('style'), AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).html())
         expect(AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).props().style.backgroundColor).toBe("#f2f2f2");
+
+        AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.weakness-filter').at(0).simulate('click');
+        // console.log(typeSelectorBtn.at(0).prop('style'), typeSelectorBtn.at(0).html())
+        expect(AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.weakness-filter').at(0).props().style.backgroundColor).toBe("#f2f2f2");
+
+        AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.weakness-filter').at(0).simulate('click');
+        // console.log(AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.weakness-filter').at(0).prop('style'), AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.type-filter').at(0).html())
+        expect(AdvancedSearchComp.childAt(0).find('.content-block-full').find('span.weakness-filter').at(0).props().style.backgroundColor).toBe("#f2f2f2");
 
         /** Using react testing library */
         // const component = render(<AdvancedSearch {...sampleProps} />);

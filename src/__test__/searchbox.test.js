@@ -63,8 +63,15 @@ describe("Test SearchBox component", () => {
     const handleMSearchkeypress = jest.fn();
     const wrapper =mount(<SearchBox handleMSearch = {handleMSearchkeypress} />);
     const inputCtrl = wrapper.find("SearchBox").find("#mfilter");
+
+    inputCtrl.simulate('keyPress', {key: "O", code: "O", charCode: 79})
+    expect(handleMSearchkeypress).toHaveBeenCalledTimes(0);
+    
     inputCtrl.simulate('keyPress', {key: "Enter", code: "Enter", charCode: 13});
-    expect(handleMSearchkeypress).toHaveBeenCalled();
+    expect(handleMSearchkeypress).toHaveBeenCalledTimes(1);
+
+    
+
     
     /** Using react testing library */
     // const handleMSearchkeypress = jest.fn();

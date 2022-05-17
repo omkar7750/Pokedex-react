@@ -9,6 +9,7 @@ export default function SearchBox(props) {
 
   let handleKeyPress = (event) => {
     if (event.key === 'Enter') props.handleMSearch(name, '', '', 'MainSearch');
+    else return;
   };
 
   return (

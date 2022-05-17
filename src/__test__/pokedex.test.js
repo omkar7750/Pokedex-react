@@ -82,9 +82,11 @@ describe("Test Pokedex component", () => {
 
     const searchbtnCtrl = wrapper.find("Pokedex").childAt(0).children().find("[data-testid=\"searchboxSearchbtn\"]");
     searchbtnCtrl.simulate("click");
+
     const pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
     const pokCards = pokListContainer.childAt(0).children();
     expect(pokCards).toHaveLength(3);
+
 
     /** Using react testing library */
     // const component = render(<MemoryRouter><Pokedex /></MemoryRouter>);
@@ -131,6 +133,27 @@ describe("Test Pokedex component", () => {
     const pokCards2 = pokListContainer2.childAt(0).children();
     expect(pokCards2).toHaveLength(151);
     
+
+    const weakGrassbtn = pokDexContainer.at(2).find("Accordion").find(".pokedex-filter-tw-list").find("li > span.weakness-selector-Grass");
+    const weakWaterbtn = pokDexContainer.at(2).find("Accordion").find(".pokedex-filter-tw-list").find("li > span.weakness-selector-Water");
+    const weakGroundbtn = pokDexContainer.at(2).find("Accordion").find(".pokedex-filter-tw-list").find("li > span.weakness-selector-Ground");
+    const weakIcebtn = pokDexContainer.at(2).find("Accordion").find(".pokedex-filter-tw-list").find("li > span.weakness-selector-Ice");
+
+  
+
+
+    weakGrassbtn.simulate("click");
+    weakWaterbtn.simulate("click");
+    weakGroundbtn.simulate("click");
+    weakIcebtn.simulate("click");
+    advSearchBtn.simulate("click");
+
+    expect(wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container").childAt(0).children()).toHaveLength(6);
+
+    resetBtn.simulate("click");
+    expect(wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container").childAt(0).children()).toHaveLength(151);
+
+
     /** Using react testing library */
     // const component = render(<BrowserRouter><Pokedex /></BrowserRouter>);
   

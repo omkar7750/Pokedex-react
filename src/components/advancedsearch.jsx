@@ -81,7 +81,7 @@ export default function AdvancedSearch(props) {
                         data-testid={`type-${tw}`}
                         data-value={tw}
                         onClick={() => handleSelect(tw, 'T')}
-                        className="filter type-filter type-weakness-filter-btn toggle type"
+                        className={`filter type-filter type-weakness-filter-btn toggle type type-selector-${tw}`}
                       >
                         T
                       </span>
@@ -95,7 +95,7 @@ export default function AdvancedSearch(props) {
                         }}
                         data-value={tw}
                         onClick={() => handleSelect(tw, 'W')}
-                        className="filter weakness-filter type-weakness-filter-btn toggle weakness"
+                        className={`filter weakness-filter type-weakness-filter-btn toggle weakness weakness-selector-${tw}`}
                       >
                         W
                       </span>
