@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Pokecard from './pokecard';
 import SearchBox from './searchbox';
 import AdvancedSearch from './advancedsearch';
-
+import NavButton from './floatingnavbtn';
 import config from '../config.js';
 
 export default class Pokedex extends Component {
@@ -102,10 +102,12 @@ export default class Pokedex extends Component {
       <div className="pokedex">
         <div className="pokedex-title">Pokédex<span data-testid="pok-animation" className='pok-icon-pokedex'></span></div>
         
-        <SearchBox
+        <div className='pokdex-searchbox-backbtn-container'><SearchBox
           nameOrNum={this.state.nameOrNum}
           handleMSearch={this.handleMSearch}
         />
+        <NavButton /></div>
+        
         <AdvancedSearch {...advSearchProps} />
         <div data-testid="pokListContainer" className='poke-list-container'><ul>
           {this.state.filteredPoks.map((pok, i) => {

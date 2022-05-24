@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Pokecard from './pokecard';
+import NavButton from './floatingnavbtn';
 
 import config from '../config.js';
 
@@ -152,12 +153,15 @@ export default function PokDetails() {
               </ul>
             </div>
           </div>
-          <Link className='backbtnlink' to={'/'}>
+          <div className='pokdetails-backbtns-container'>
+          <Link className='backbtnlink' to={'/pokdex'}>
             <button  className="backbtn">
               <FontAwesomeIcon className='back-btn-chevron-left' icon={faChevronLeft} />
-              Back To Home
+              Explore More Pokémon
             </button>
           </Link>
+          <NavButton />
+          </div>
         </section>
       </div>
     </div>
