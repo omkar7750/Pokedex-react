@@ -701,7 +701,7 @@ h5 {
 
 .pokhome .pokhome-heading {
   font-size: x-large;
-  font-family: cursive;
+  font-family: 'Eczar', serif;
   padding: 15px;
   background: url('../public/body_gray_bg.png');
   opacity: 0.7;
@@ -723,14 +723,14 @@ h5 {
 .pokhome .pokhome-nav {
   position: inherit;
   height: 50px;
-  width: 20%;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   margin: 15px;
   font-size: x-large;
-  font-family: cursive;
+  font-family: 'Eczar', serif;
   background-color: #ff5722;
 }
 
