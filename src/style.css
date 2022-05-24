@@ -490,7 +490,7 @@ h5 {
   /* background-color: #b1c9b1; */
   background: url('../public/body_gray_bg.png');
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px 50px;
 }
 .evolution-container .evolution-title {
   font-family: 'Roboto', arial, sans-serif;
@@ -718,6 +718,7 @@ h5 {
 
 .pokhome .pokhome-title {
   padding-left: 10px;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .pokhome .pokhome-nav {

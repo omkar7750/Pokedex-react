@@ -8,7 +8,7 @@ import App from "../App";
 describe("Test App component", () => {
     test('renders APP component', () => {
       const wrapper =mount(<App />);
-      expect(wrapper.find('Pokedex')).toHaveLength(1);
+      expect(wrapper.find('App')).toHaveLength(1);
       
     });
 
