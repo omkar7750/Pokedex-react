@@ -684,33 +684,32 @@ h5 {
   font-size: 110%;
 }
 
-
 .pokdetails-backbtns-container {
   display: flex;
   justify-content: space-between;
 }
 
 .pokhome {
-  background: url("../public/home_pok_image.jpeg");
-  height: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: white;
-    background-color: black;
-    background-position-y: center;
+  background: url('../public/home_pok_image.jpeg');
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: white;
+  background-color: black;
+  background-position-y: center;
 }
 
 .pokhome .pokhome-heading {
   font-size: x-large;
   font-family: cursive;
   padding: 15px;
-  background: url("../public/body_gray_bg.png");
+  background: url('../public/body_gray_bg.png');
   opacity: 0.7;
 }
 
 .pokhome .pokhome-heading span {
   font-size: 2em;
-    color: yellow;
+  color: yellow;
 }
 
 .pokhome .pokhome-heading .secpart {
@@ -722,7 +721,6 @@ h5 {
 }
 
 .pokhome .pokhome-nav {
-  
   position: inherit;
   height: 50px;
   width: 20%;
@@ -737,7 +735,7 @@ h5 {
 }
 
 .pokhome .pokhome-nav:hover {
-  background-color:  #f5430b;
+  background-color: #f5430b;
 }
 
 .pokhome .pokhome-nav a {
@@ -755,16 +753,16 @@ h5 {
 
 .nav-btn {
   width: 100px;
-    height: 50px;
-    /* background-color: #cddc39; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    cursor: pointer;
-    background: url("../public/pokhome-btn-img.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+  height: 50px;
+  /* background-color: #cddc39; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background: url('../public/pokhome-btn-img.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .nav-btn:hover {
@@ -776,7 +774,6 @@ h5 {
   justify-content: space-between;
   align-items: center;
 }
-
 
 /* ----------------- */
 .background-color-bug {
@@ -880,7 +877,8 @@ h5 {
     width: 45%;
   }
 
-  .pokhome .pokhome-nav, .pokhome .pokhome-heading {
+  .pokhome .pokhome-nav,
+  .pokhome .pokhome-heading {
     font-size: small;
   }
   .pokhome .pokhome-heading span {
@@ -894,8 +892,9 @@ h5 {
     width: 100%;
     padding: 0px;
   }
-  
-  .pokhome .pokhome-nav,.pokhome .pokhome-heading  {
+
+  .pokhome .pokhome-nav,
+  .pokhome .pokhome-heading {
     font-size: small;
   }
 
