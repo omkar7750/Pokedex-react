@@ -521,6 +521,7 @@ h5 {
 .evolution-container .evolution-cards ul .li-chevron {
   padding-top: 55px;
   font-size: xx-large;
+  color: white;
 }
 
 .evolution-container ul .li:hover {
@@ -723,13 +724,13 @@ h5 {
 
 .nav-btn-link {
   position: fixed;
-    right: 0;
-    top: 0;
-    margin-top: 200px;
-    background: yellowgreen;
-    z-index: 1;
-    /* border-radius: 50% 0 0 50%; */
-    padding: 5px;
+  right: 0;
+  top: 0;
+  margin-top: 200px;
+  background: yellowgreen;
+  z-index: 1;
+  /* border-radius: 50% 0 0 50%; */
+  padding: 5px;
 }
 
 .pokhome .pokhome-nav {
@@ -907,13 +908,13 @@ h5 {
 
   .nav-btn-link {
     position: relative;
-      right: auto;
-      top: auto;
-      margin-top: auto;
-      background: none;
-      z-index: 0;
-      /* border-radius: 50% 0 0 50%; */
-      padding: auto;
+    right: auto;
+    top: auto;
+    margin-top: auto;
+    background: none;
+    z-index: 0;
+    /* border-radius: 50% 0 0 50%; */
+    padding: auto;
   }
 
   .pokhome .pokhome-nav,
