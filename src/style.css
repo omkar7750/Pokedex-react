@@ -30,10 +30,12 @@ p {
 .pokedex {
   max-width: 1024px;
   margin: 0 auto;
+  background-color: white;
 }
 
 .pok-app-container {
   background: url('../public/container_bg.png');
+  background-attachment: fixed;
 }
 
 .pokedex ul {
@@ -445,6 +447,7 @@ h5 {
   overflow: hidden;
   max-width: 1024px;
   width: 100%;
+  background-color: white;
 }
 
 .column-6 {
@@ -890,6 +893,12 @@ h5 {
     width: 45%;
   }
 
+  .pokedex, .section {
+    background-color: inherit;
+  }
+
+  
+
   .pokhome .pokhome-nav,
   .pokhome .pokhome-heading {
     font-size: small;
@@ -904,6 +913,10 @@ h5 {
   .pokedex-pokemon-profile {
     width: 100%;
     padding: 0px;
+  }
+
+  .pokedex, .section {
+    background-color: inherit;
   }
 
   .nav-btn-link {
