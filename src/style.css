@@ -928,12 +928,14 @@ a.nav-btn-link:hover {
   }
 
   .pokhome .pokhome-nav,
-  .pokhome .pokhome-heading {
+  .pokhome .pokhome-heading, .pokhome-description {
     font-size: small;
   }
   .pokhome .pokhome-heading span {
     font-size: x-large;
   }
+
+   
 }
 
 @media screen and (max-width: 522px) {
@@ -965,7 +967,7 @@ a.nav-btn-link:hover {
   }
 
   .pokhome .pokhome-nav,
-  .pokhome .pokhome-heading {
+  .pokhome .pokhome-heading, .pokhome-description {
     font-size: small;
   }
 
