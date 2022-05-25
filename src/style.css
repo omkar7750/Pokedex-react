@@ -698,7 +698,7 @@ h5 {
 .pokhome {
   background: url('../public/pok-home-2.jpg');
   height: 100vh;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   color: white;
   background-color: black;
@@ -718,13 +718,10 @@ h5 {
   opacity: 0.7;
 }
 
-
-
 .footer-container .about-us {
   margin-right: 10px;
   cursor: pointer;
   padding: 6px;
-  
 }
 .footer-container .about-us:hover {
   color: white;
@@ -928,14 +925,13 @@ a.nav-btn-link:hover {
   }
 
   .pokhome .pokhome-nav,
-  .pokhome .pokhome-heading, .pokhome-description {
+  .pokhome .pokhome-heading,
+  .pokhome-description {
     font-size: small;
   }
   .pokhome .pokhome-heading span {
     font-size: x-large;
   }
-
-   
 }
 
 @media screen and (max-width: 522px) {
@@ -967,7 +963,8 @@ a.nav-btn-link:hover {
   }
 
   .pokhome .pokhome-nav,
-  .pokhome .pokhome-heading, .pokhome-description {
+  .pokhome .pokhome-heading,
+  .pokhome-description {
     font-size: small;
   }
 
