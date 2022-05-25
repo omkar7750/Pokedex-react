@@ -697,7 +697,7 @@ h5 {
 
 .pokhome {
   /* background: url('../public/pok-home-2.jpg'); */
-  height: 100%;
+  height: 100vh;
   /* background-size: contain; */
   /* background-repeat: no-repeat; */
   color: white;
@@ -757,7 +757,7 @@ h5 {
 }
 
 .pokhome .pokhome-desc-footer-container {
-  background: url("../public/pok-home-2.jpg");
+  background: url('../public/pok-home-2.jpg');
   height: 70%;
   border-radius: 8px;
 }
