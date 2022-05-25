@@ -5,7 +5,7 @@ import PokHome from '../components/pokhome';
 import { MemoryRouter } from 'react-router-dom';
 import config from "../config";
 
-describe('Test Nav button component', () => {
+describe('Test PokHome component', () => {
     test('Test snapshot', () => {
         const wrapper =mount(<MemoryRouter><PokHome /></MemoryRouter>);
         expect(wrapper.find('PokHome')).toMatchSnapshot();
@@ -41,6 +41,12 @@ describe('Test Nav button component', () => {
         expect(PokHomeComp.find('.pokhome-description').text()).toEqual(config.pokHomeDescription);
     });
     
+    test('Test Footer Component', () => {
+        const wrapper =mount(<MemoryRouter><PokHome /></MemoryRouter>);
+        const PokHomeComp = wrapper.find('PokHome');
+        expect(PokHomeComp.find('Footer')).toHaveLength(1);
+        
+    });
 })
 
 
