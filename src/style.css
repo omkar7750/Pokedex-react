@@ -36,6 +36,7 @@ p {
 .pok-app-container {
   background: url('../public/container_bg.png');
   background-attachment: fixed;
+  height: 100%;
 }
 
 .pokedex ul {
@@ -448,6 +449,7 @@ h5 {
   max-width: 1024px;
   width: 100%;
   background-color: white;
+  border-radius: 10px;
 }
 
 .column-6 {
@@ -893,11 +895,10 @@ h5 {
     width: 45%;
   }
 
-  .pokedex, .section {
+  .pokedex,
+  .section {
     background-color: inherit;
   }
-
-  
 
   .pokhome .pokhome-nav,
   .pokhome .pokhome-heading {
@@ -915,7 +916,8 @@ h5 {
     padding: 0px;
   }
 
-  .pokedex, .section {
+  .pokedex,
+  .section {
     background-color: inherit;
   }
 
