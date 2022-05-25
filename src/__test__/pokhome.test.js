@@ -3,6 +3,7 @@ import { mount } from "enzyme";
 import 'whatwg-fetch';
 import PokHome from '../components/pokhome';
 import { MemoryRouter } from 'react-router-dom';
+import config from "../config";
 
 describe('Test Nav button component', () => {
     test('Test snapshot', () => {
@@ -34,6 +35,11 @@ describe('Test Nav button component', () => {
         expect(PokHomeComp.find('.pokhome-description')).toHaveLength(1);
     });
     
+    test('Test Description from config is rendered in pokhome description', () => {
+        const wrapper =mount(<MemoryRouter><PokHome /></MemoryRouter>);
+        const PokHomeComp = wrapper.find('PokHome');
+        expect(PokHomeComp.find('.pokhome-description').text()).toEqual(config.pokHomeDescription);
+    });
     
 })
 
