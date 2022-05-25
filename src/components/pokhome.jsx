@@ -9,7 +9,9 @@ export default function PokHome(props) {
     <div className='pokhome'>
         <div className='pokhome-heading'>welcome to <div className='pokhome-title'><span>Pokemon </span><span className='secpart'>World</span></div></div>
         <div className='pokhome-nav'><Link  data-testid={`link-pokdex`} to={'/pokdex'}>Explore Pokédex</Link></div>
-        <div className='pokhome-description'>{config.pokHomeDescription}</div>
+        <div className='pokhome-desc-footer-container'>
+          <div className='pokhome-description'>{config.pokHomeDescription}</div>
+        </div>
         <Footer />
     </div>
   );

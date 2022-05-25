@@ -696,26 +696,31 @@ h5 {
 }
 
 .pokhome {
-  background: url('../public/pok-home-2.jpg');
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background: url('../public/pok-home-2.jpg'); */
+  height: 100%;
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
   color: white;
-  background-color: black;
-  background-position-y: center;
+  /* background-color: black; */
+  /* background-position-y: center; */
   position: relative;
+
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
 .footer-container {
   display: flex;
-  position: absolute;
-  bottom: 0;
+  margin-top: 20px;
+  /* position: absolute;
+  bottom: 12; */
   justify-content: flex-end;
   width: 100%;
-  background-color: #f3efef6b;
-  height: 30px;
+  background-color: #2b2828;
+  height: 35px;
   align-items: center;
   opacity: 0.7;
+  border-radius: 8px;
 }
 
 .footer-container .about-us {
@@ -725,7 +730,7 @@ h5 {
 }
 .footer-container .about-us:hover {
   color: white;
-  background-color: #221c1c;
+  background-color: #161010;
 }
 
 .pokhome .pokhome-heading {
@@ -734,6 +739,7 @@ h5 {
   padding: 15px;
   background: url('../public/body_gray_bg.png');
   opacity: 0.7;
+  border-radius: 8px;
 }
 
 .pokhome .pokhome-heading span {
@@ -748,6 +754,12 @@ h5 {
 .pokhome .pokhome-title {
   padding-left: 10px;
   text-shadow: 2px 2px 4px #000000;
+}
+
+.pokhome .pokhome-desc-footer-container {
+  background: url("../public/pok-home-2.jpg");
+  height: 70%;
+  border-radius: 8px;
 }
 
 .nav-btn-link {
