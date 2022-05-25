@@ -269,6 +269,13 @@ describe("Test Pokedex component", () => {
     // });
   })
 
+  test('render Navbutton component', async() => {
+    
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    const NavButtonComp = wrapper.find("Pokedex").find("FloatingNavButton");
+    expect(NavButtonComp).toHaveLength(1);
+  })
+
 })
 
 

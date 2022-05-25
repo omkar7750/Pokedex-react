@@ -148,5 +148,10 @@ describe("Test PokDetails component", () => {
         // })
     })
 
+    test('render Navbutton component', async() => {
+      const PokeDetailsComp = wrapperComp.find(PokDetails);
+      const NavButtonComp = PokeDetailsComp.find("FloatingNavButton");
+      expect(NavButtonComp).toHaveLength(1);
+    })
 
 })
