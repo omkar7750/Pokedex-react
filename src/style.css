@@ -783,8 +783,9 @@ h5 {
   background-repeat: no-repeat;
 }
 
-.nav-btn:hover {
-  /* background-color: #859015; */
+a.nav-btn-link:hover {
+  box-shadow: 0px 1px 1px #718b2f;
+  background-color: #8fc71d;
 }
 
 .pokdex-searchbox-backbtn-container {
