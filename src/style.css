@@ -36,7 +36,7 @@ p {
 .pok-app-container {
   background: url('../public/container_bg.png');
   background-attachment: fixed;
-  height: 100%;
+  min-height: 100%;
 }
 
 .pokedex ul {
