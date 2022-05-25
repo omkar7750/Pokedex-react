@@ -933,6 +933,11 @@ a.nav-btn-link:hover {
     padding: auto;
   }
 
+  a.nav-btn-link:hover {
+    box-shadow: inherit;
+    background-color: inherit;
+  }
+
   .pokhome .pokhome-nav,
   .pokhome .pokhome-heading {
     font-size: small;
