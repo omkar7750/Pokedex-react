@@ -3,7 +3,8 @@ import './style.css';
 
 import Pokedex from './components/Pokedex';
 import PokDetails from './components/pokdetails';
-import PokHome from './components/pokhome'
+import PokHome from './components/pokhome';
+import AboutUs from './components/aboutus';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/" exact element={<PokHome />}></Route>
           <Route path="/pokdex" exact element={<Pokedex />}></Route>
           <Route path="/details/:pokId" exact element={<PokDetails />}></Route>
+          <Route path="/aboutus" exact element={<AboutUs />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

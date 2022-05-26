@@ -676,6 +676,8 @@ h5 {
   margin-right: 10px;
   cursor: pointer;
   padding: 6px;
+  text-decoration: none;
+    color: white;
 }
 .footer-container .about-us:hover {
   color: white;
@@ -774,6 +776,78 @@ a.nav-btn-link:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+
+
+.aboutus-container {
+  max-width: 1024px;
+    margin: 0 auto;
+}
+
+.aboutus-title {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  align-items: center;
+  background:url("../public/pok-home-2.jpg");
+  background-position: bottom;
+  font-size: xxx-large;
+  font-family: 'Eczar', serif;
+  border-radius: 8px;
+  text-shadow: 2px 2px 4px #000000;
+  color: white;
+    
+}
+
+.aboutus-content {
+  height: 80%;
+  /* width: 100%; */
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+}
+
+.aboutus-pokdex-nav {
+  margin-top: 10px;
+  
+  background: url("../public/body_bg.png");
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  background-position: center;
+}
+
+.aboutus-pokdex-link {
+  text-shadow: 2px 2px 4px #908585;
+  padding: 15px;
+  font-size: larger;
+  color: white;
+  font-weight: 600;
+  font-family: sans-serif;
+  cursor: pointer;
+  text-align: center;
+  font-variant-caps: unicase;
+  display: block;
+  text-decoration: none;
+}
+
+.aboutus-pokdex-link:hover {
+  color: yellow;
+}
+
+.aboutus-content .desc {
+  width: 60%;
+  font-size: x-large;
+}
+
+.aboutus-pikachu-image {
+  background: url("../public/aboutus/pikachu.png");
+  background-repeat: no-repeat;
+  width: 40%; 
+  height: auto;
 }
 
 /* ----------------- */
