@@ -15,7 +15,7 @@ p {
   line-height: 125%;
   text-transform: none;
   font-family: 'Flexo-Regular', arial, sans-serif;
-
+  text-shadow: 0 1px 1px #ded5d5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -199,6 +199,7 @@ h5 {
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
+  border-color: #ee6b2f;
 }
 
 #msearchbtn:hover {
@@ -747,6 +748,11 @@ h5 {
   width: 100%;
   text-align: center;
   text-decoration: none;
+  text-shadow: 2px 2px 4px #ebc90c;
+}
+
+.pokhome .pokhome-nav a:hover {
+  color: yellowgreen;
 }
 
 .pokhome-description {
