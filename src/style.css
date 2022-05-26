@@ -36,6 +36,7 @@ p {
   background: url('../public/container_bg.png');
   background-attachment: fixed;
   min-height: 100%;
+  cursor: url('../public/aboutus/Pokemon-Download-PNG-Image.png'), auto;
 }
 
 .pokedex ul {
