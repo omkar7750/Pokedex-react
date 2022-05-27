@@ -58,7 +58,7 @@ const samplePokmon = {
 
   const waitForComponentToRender = async (wrapper) => {
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
       wrapper.update();
     });
  };
@@ -101,7 +101,6 @@ describe("Test PokDetails component", () => {
     })
 
     test("renders Pokemon's number, name, height and weight component", async() => {
-        
       
       
       const PokeDetailsComp = wrapperComp.find(PokDetails);
@@ -128,7 +127,7 @@ describe("Test PokDetails component", () => {
         //     expect(getAllByTestId(/pok-details-pok-types-/)).toHaveLength(samplePokmon.type.length);
         //     expect(getAllByTestId(/pok-details-pok-weaknesses-/)).toHaveLength(samplePokmon.weaknesses.length);
         // })
-    })
+    }, 15000)
 
     test("renders Pokemon's pre-evolution, current and next evolution", async() => { 
       const PokeDetailsComp = wrapperComp.find(PokDetails);
@@ -146,7 +145,7 @@ describe("Test PokDetails component", () => {
         //     const countToMatch = (samplePokmon.prev_evolution.length || 0) + 1 + (samplePokmon.next_evolution.length || 0);
         //     expect(comp).toHaveLength(countToMatch);
         // })
-    })
+    }, 15000)
 
     test('render Navbutton component', async() => {
       const PokeDetailsComp = wrapperComp.find(PokDetails);

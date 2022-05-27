@@ -5,6 +5,7 @@ import AdvancedSearch from './advancedsearch';
 import NavButton from './floatingnavbtn';
 import config from '../config.js';
 import { orderBy } from 'lodash';
+import {getPaginatedItems} from '../utility/pagination';
 
 export default class Pokedex extends Component {
   constructor(props) {
@@ -16,6 +17,9 @@ export default class Pokedex extends Component {
       filterWeaknessess: [],
       filtertypes: [],
       typeWeaknessList: [],
+      pageSize: 12,
+      currentPage: 1
+
     };
   }
 
@@ -75,6 +79,14 @@ export default class Pokedex extends Component {
     });
   }
 
+  setCurrentPage = (currentPage) => {
+    this.setState({ currentPage})
+  }
+
+  setPageSize = (pageSize) => {
+    this.setState({ pageSize, currentPage: 1 })
+  }
+
   componentDidMount() {
     return fetch(config.dataUrl)
       .then((response) => response.json())
@@ -107,6 +119,10 @@ export default class Pokedex extends Component {
       handleSortByName: this.handleSortByName
     };
 
+    const {filteredPoks, currentPage, pageSize} = this.state;
+
+    let paginationRecord = getPaginatedItems(filteredPoks, currentPage, pageSize);
+
     return (
       <div className="pokedex">
         <div className="pokedex-title">Pokédex<span data-testid="pok-animation" className='pok-icon-pokedex'></span></div>
@@ -119,10 +135,22 @@ export default class Pokedex extends Component {
         
         <AdvancedSearch {...advSearchProps} />
         <div data-testid="pokListContainer" className='poke-list-container'><ul>
-          {this.state.filteredPoks.map((pok, i) => {
+          {paginationRecord.data.map((pok, i) => {
             return <Pokecard key={`pokdetails-${i}`} {...pok} />;
           })}
         </ul>
+
+        <div className='page-size'>
+          Page Size: <input type="text" className="pagesize-input" value={pageSize} onChange={(e)=>this.setPageSize(e.target.value)} />
+        </div>
+        <div className="pagination">
+          { 
+          [ ...Array(paginationRecord.total_pages).keys() ].map ((d) => {
+             return ( <a  key={`page-no-${d+1}`} className = { currentPage == d+1? "page-no pagination-active-page-no": "page-no" }  onClick={() => this.setCurrentPage(d+1)}>{d+1}</a>)
+          })
+          }
+          
+        </div>
         </div>
       </div>
     );

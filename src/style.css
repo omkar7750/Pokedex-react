@@ -36,7 +36,7 @@ p {
   background: url('../public/container_bg.png');
   background-attachment: fixed;
   min-height: 100%;
-  cursor: url('../public/aboutus/Pokemon-Download-PNG-Image.png'), auto;
+  /* cursor: url('../public/aboutus/Pokemon-Download-PNG-Image.png'), auto; */
 }
 
 .pokedex ul {
@@ -84,6 +84,30 @@ p {
   background-color: #0000000a;
   border-radius: 8px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.pagination .page-no {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid gray;
+    margin: 3px 5px;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 5px;
+}
+
+.pagination-active-page-no {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
 @keyframes animation {
   50% {
     transform: translateY(-10px);
@@ -883,6 +907,22 @@ a.nav-btn-link:hover {
   height: auto;
 }
 
+
+.pokedex .page-size {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    font-size: larger;
+    align-items: center;
+    font-weight: 600;
+}
+
+.pokedex .pagesize-input {
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 /* ----------------- */
 .background-color-bug {
   background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
@@ -980,6 +1020,13 @@ a.nav-btn-link:hover {
   color: #fff;
 }
 
+@media screen and (max-width: 755px) { 
+  .pagination .page-no {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
 @media screen and (min-width: 474px) and (max-width: 657px) {
   .pokedex ul .li {
     width: 45%;
@@ -1009,6 +1056,11 @@ a.nav-btn-link:hover {
 
   .aboutus-content .desc, .pokhome-description {
     font-size: larger;
+  }
+
+  .pagination .page-no {
+    padding: 3px 6px;
+    font-size: 12px;
   }
 
 }
@@ -1093,6 +1145,11 @@ a.nav-btn-link:hover {
   .aboutus-content .desc, .pokhome-description {
     font-size: larger;
   }
+
+  .pagination .page-no {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 474px) {
@@ -1105,6 +1162,11 @@ a.nav-btn-link:hover {
 
   .aboutus-content .desc , .pokhome-description {
     font-size: medium;
+  }
+
+  .pagination .page-no {
+    padding: 2px 4px;
+    font-size: 10px;
   }
 }
 
