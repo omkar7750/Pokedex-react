@@ -6,7 +6,8 @@ import 'whatwg-fetch'
 
 const sampleProps = {
     typeWeaknessList:['Grass', 'Poison', 'Fire', 'Flying', 'Water', 'Bug', 'Normal', 'Electric', 'Ground', 'Fighting', 'Psychic', 'Rock', 'Ice', 'Ghost', 'Dragon', 'Fairy', 'Dark', 'Steel'],
-    handleMSearch: jest.fn()
+    handleMSearch: jest.fn(),
+    handleSortByName: jest.fn()
 }
 
 const backgroundColor = (element) => window.getComputedStyle(element).backgroundColor;
@@ -161,6 +162,33 @@ describe('Test Advanced search component', ()=>{
         // const  resetBtn = component.getByTestId('resetBtn');
         // fireEvent.click(resetBtn); 
         // expect(sampleProps.handleMSearch).toHaveBeenCalledWith("", "", "");
+    })
+
+    test('Test sorting buttons rendered', () => {
+        
+        const wrapper =mount(<AdvancedSearch {...sampleProps} />);
+        const AdvancedSearchComp = wrapper.find('AdvancedSearch');
+        AdvancedSearchComp.find('Accordion').simulate('click');
+        expect(AdvancedSearchComp.childAt(0).find('AccordionItemPanel').find('.adv-sort-container')).toHaveLength(1);
+        const  ascendingBtn = AdvancedSearchComp.childAt(0).find('AccordionItemPanel').find('.adv-sort-container').find("#asc");
+        const  descendingBtn = AdvancedSearchComp.childAt(0).find('AccordionItemPanel').find('.adv-sort-container').find("#desc");
+        expect(ascendingBtn).toHaveLength(1);
+        expect(descendingBtn).toHaveLength(1);
+
+    })
+
+    test('Test handleSortByName gets called on sorting', () => {
+        
+        const wrapper =mount(<AdvancedSearch {...sampleProps} />);
+        const AdvancedSearchComp = wrapper.find('AdvancedSearch');
+        AdvancedSearchComp.find('Accordion').simulate('click');
+        const  ascendingBtn = AdvancedSearchComp.childAt(0).find('AccordionItemPanel').find('.adv-sort-container').find("#asc");
+        ascendingBtn.simulate('change');
+        expect(sampleProps.handleSortByName).toHaveBeenCalledWith("asc");
+        const  descendingBtn = AdvancedSearchComp.childAt(0).find('AccordionItemPanel').find('.adv-sort-container').find("#desc");
+        descendingBtn.simulate('change');
+        expect(sampleProps.handleSortByName).toHaveBeenCalledWith("desc");
+
     })
 
 })

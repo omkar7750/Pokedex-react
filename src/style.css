@@ -79,7 +79,7 @@ p {
   display: block;
   position: relative;
   margin: 0 0.78125% 50px;
-  width: 180px;
+  width: 200px;
   padding: 3px;
   background-color: #0000000a;
   border-radius: 8px;
@@ -265,6 +265,27 @@ h5 {
   text-transform: none;
   font-size: 160%;
   margin-right: 15px;
+}
+
+.adv-sort-container {
+  font-family: 'Flexo-Demi', arial, sans-serif;
+    font-size: larger;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.adv-sort-button {
+    width: 20px;
+    height: 20px;
+    accent-color: yellowgreen;
+}
+
+.adv-sort-cntrl-label {
+  color: yellowgreen;
+  margin-left: 5px;
+  font-size: medium;
 }
 
 .filter-help {

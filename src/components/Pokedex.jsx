@@ -4,6 +4,7 @@ import SearchBox from './searchbox';
 import AdvancedSearch from './advancedsearch';
 import NavButton from './floatingnavbtn';
 import config from '../config.js';
+import { orderBy } from 'lodash';
 
 export default class Pokedex extends Component {
   constructor(props) {
@@ -67,6 +68,13 @@ export default class Pokedex extends Component {
     });
   };
 
+  handleSortByName = (sortType) => {
+    let filteredPoks = _.orderBy([...this.state.pokemons], 'name', sortType);
+    this.setState({
+      filteredPoks
+    });
+  }
+
   componentDidMount() {
     return fetch(config.dataUrl)
       .then((response) => response.json())
@@ -96,6 +104,7 @@ export default class Pokedex extends Component {
       filterWeaknessess: this.props.filterWeaknessess,
       filtertypes: this.props.filtertypes,
       handleMSearch: this.handleMSearch,
+      handleSortByName: this.handleSortByName
     };
 
     return (

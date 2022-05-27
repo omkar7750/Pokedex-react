@@ -10,6 +10,7 @@ import {
 import 'react-accessible-accordion/dist/fancy-example.css';
 
 export default function AdvancedSearch(props) {
+  const [sortByAsc, setSortByAsc] = useState("init");
   const [filtertypes, setfilterTypes] = useState(props.filtertypes || []);
   const [filterweaknessess, setfilterWeaknessess] = useState(
     props.filterWeaknessess || []
@@ -22,10 +23,16 @@ export default function AdvancedSearch(props) {
     props.handleMSearch('', filtertypes, filterweaknessess);
   };
 
+  let handleSort = (sortType) => {
+    setSortByAsc(sortType == "asc"? true: false);
+    props.handleSortByName(sortType);
+  }
+
   let handleReset = () => {
     props.handleMSearch('', '', '');
     setfilterTypes([]);
     setfilterWeaknessess([]);
+    setSortByAsc('init')
   };
 
   let handleSelect = (val, torw) => {
@@ -105,12 +112,18 @@ export default function AdvancedSearch(props) {
               </ul>
             </div>
             <div>
+              <div className='adv-sort-container'>
+                Sort by Name 
+                <span className='adv-sort-cntrl-label'>asc:</span> <input type="radio" className='adv-sort-button' name="sort-by-name" id="asc" onChange={() => handleSort("asc")} checked={sortByAsc === true} />
+                <span className='adv-sort-cntrl-label'>desc:</span> <input type="radio" className='adv-sort-button' name="sort-by-name" id="desc" onChange={() => handleSort("desc")} checked={sortByAsc === false} />
+              </div>
               <button data-testid="resetBtn" className='mresetbtnadv' onClick={handleReset}>
                 Reset
               </button>
               <button data-testid="advSearchBtn" className='msearchbtnadv' onClick={handleSearch}>
                 Search
               </button>
+              
             </div>
           </>
         </AccordionItemPanel>

@@ -59,7 +59,7 @@ export default function PokDetails() {
         <div id="pokIdName">
           {pok.name}
           <span data-testid="pok-details-pok-num" className="pokemon-number">#{pok.num}</span>
-        </div>
+          </div>
         <section className="section pokedex-pokemon-details">
           <div className="column-6 push-1">
             {pok.img && <div key={`pok-profile-image-${pok.name}`} className="pokedex-pokemon-profile">
