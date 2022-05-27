@@ -713,6 +713,8 @@ h5 {
   background: url('../public/pok-home-2.jpg');
   height: 70%;
   border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .nav-btn-link {
