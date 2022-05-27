@@ -761,6 +761,7 @@ h5 {
   width: 40%;
   padding: 15px;
   font-family: system-ui;
+  font-size: x-large;
 }
 
 .nav-btn {
@@ -985,7 +986,7 @@ a.nav-btn-link:hover {
     font-size: large;
   }
 
-  .aboutus-content .desc {
+  .aboutus-content .desc, .pokhome-description {
     font-size: larger;
   }
 
@@ -1068,7 +1069,7 @@ a.nav-btn-link:hover {
     font-size: large;
   }
 
-  .aboutus-content .desc {
+  .aboutus-content .desc, .pokhome-description {
     font-size: larger;
   }
 }
@@ -1081,7 +1082,7 @@ a.nav-btn-link:hover {
     width: 70%;
   }
 
-  .aboutus-content .desc {
+  .aboutus-content .desc , .pokhome-description {
     font-size: medium;
   }
 }
