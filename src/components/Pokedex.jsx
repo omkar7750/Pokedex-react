@@ -69,7 +69,7 @@ export default class Pokedex extends Component {
   };
 
   handleSortByName = (sortType) => {
-    let filteredPoks = _.orderBy([...this.state.pokemons], 'name', sortType);
+    let filteredPoks = orderBy([...this.state.pokemons], 'name', sortType);
     this.setState({
       filteredPoks
     });
