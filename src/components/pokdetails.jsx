@@ -12,9 +12,13 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 
+
+import loaderImage from '../utility/images/loader1.gif'
+
 export default function PokDetails() {
   let { pokId } = useParams();
   const [pok, setPok] = useState({});
+  const [loading, setLoading] = useState(true);
   const [prev_evolution, setPrev_evolution] = useState([]);
   const [next_evolution, setNext_evolution] = useState([]);
 
@@ -49,6 +53,7 @@ export default function PokDetails() {
         }
 
         setPok(selectedPok);
+        setLoading(false);
         global.scrollTo(0, 0)
       });
   }, [pokId]);
@@ -61,7 +66,7 @@ export default function PokDetails() {
           <span data-testid="pok-details-pok-num" className="pokemon-number">#{pok.num}</span>
           </div>
         <section className="section pokedex-pokemon-details">
-          <div className="column-6 push-1">
+          {loading? <div className='loader'><img src = {loaderImage} /></div>:<><div className="column-6 push-1">
             {pok.img && <div key={`pok-profile-image-${pok.name}`} className="pokedex-pokemon-profile">
               <div className="profile-images">
                 <img className="active" src={pok.img} alt={pok.name} />
@@ -152,7 +157,7 @@ export default function PokDetails() {
                 )}
               </ul>
             </div>
-          </div>
+          </div></>}
           <div className='pokdetails-backbtns-container'>
           <Link className='backbtnlink' to={'/pokdex'}>
             <button  className="backbtn">
