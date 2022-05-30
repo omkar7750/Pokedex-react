@@ -6,7 +6,7 @@ import NavButton from './floatingnavbtn';
 import config from '../config.js';
 import { orderBy } from 'lodash';
 import {getPaginatedItems} from '../utility/pagination';
-import loaderImage from '../utility/images/loader1.gif'
+import Loader from './loader';
 
 export default class Pokedex extends Component {
   constructor(props) {
@@ -138,7 +138,7 @@ export default class Pokedex extends Component {
         
         <AdvancedSearch {...advSearchProps} />
         <div data-testid="pokListContainer" className='poke-list-container'><ul>
-          {this.state.loading? <div className='loader'><img src={loaderImage} /></div>:paginationRecord.data.map((pok, i) => {
+          {this.state.loading? <div className='loader'><Loader /></div>:paginationRecord.data.map((pok, i) => {
             return <Pokecard key={`pokdetails-${i}`} {...pok} />;
           })}
         </ul>

@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 
-import loaderImage from '../utility/images/loader1.gif'
+import Loader from './loader';
 
 export default function PokDetails() {
   let { pokId } = useParams();
@@ -66,10 +66,10 @@ export default function PokDetails() {
           <span data-testid="pok-details-pok-num" className="pokemon-number">#{pok.num}</span>
           </div>
         <section className="section pokedex-pokemon-details">
-          {loading? <div className='loader'><img src = {loaderImage} /></div>:<><div className="column-6 push-1">
+          <div className="column-6 push-1">
             {pok.img && <div key={`pok-profile-image-${pok.name}`} className="pokedex-pokemon-profile">
               <div className="profile-images">
-                <img className="active" src={pok.img} alt={pok.name} />
+              {loading? <div className='loader'><Loader /></div>:<img className="active" src={pok.img} alt={pok.name} />}
               </div>
             </div>}
 
@@ -77,17 +77,17 @@ export default function PokDetails() {
               <div className="height-weight">
                 <div>
                   <div className="pokdetails-cat-title">Height</div>
-                  <div className='pok-details-pok-height pokdetails-cat-value' data-testid="pok-details-pok-height">{pok.height}</div>
+                  <div className='pok-details-pok-height pokdetails-cat-value' data-testid="pok-details-pok-height">{pok.height || "-"}</div>
                 </div>
                 <div>
                   <div className="pokdetails-cat-title">Weight</div>
-                  <div className='pok-details-pok-weight pokdetails-cat-value' data-testid="pok-details-pok-weight">{pok.weight}</div>
+                  <div className='pok-details-pok-weight pokdetails-cat-value' data-testid="pok-details-pok-weight">{pok.weight || "-"}</div>
                 </div>
               </div>
 
               <div className="pokdetails-cat-title">Type</div>
               <div className='abilities-pokdetails-type-container'>
-              {pok.type &&
+              {loading? <Loader />:
                 pok.type.map((t, tind) => (
                   <span
                     data-testid={`pok-details-pok-types-${tind}`}
@@ -100,7 +100,7 @@ export default function PokDetails() {
               </div>
               <div className="pokdetails-cat-title">Weaknesses</div>
               <div className='abilities-pokdetails-weakness-container'>
-                {pok.weaknesses &&
+                {loading? <Loader />:
                 pok.weaknesses.map((t, tind) => (
                   <span
                     data-testid={`pok-details-pok-weaknesses-${tind}`}
@@ -157,7 +157,7 @@ export default function PokDetails() {
                 )}
               </ul>
             </div>
-          </div></>}
+          </div>
           <div className='pokdetails-backbtns-container'>
           <Link className='backbtnlink' to={'/pokdex'}>
             <button  className="backbtn">
