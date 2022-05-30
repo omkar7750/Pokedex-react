@@ -69,7 +69,7 @@ describe("Test Pokedex component", () => {
     const pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
     expect(pokListContainer).toBeTruthy()
     const pokCards = pokListContainer.childAt(0).children();
-    expect(pokCards).toHaveLength(151);
+    expect(pokCards).toHaveLength(12);
 
     /** Using react testing library */
     // const component = render(<BrowserRouter><Pokedex /></BrowserRouter>);
@@ -81,7 +81,7 @@ describe("Test Pokedex component", () => {
   })
 
   test('Test searchbox filtering', async() => {
-
+    jest.setTimeout(10000);
     const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
     await wrapper.find("Pokedex").instance().componentDidMount()
     await wrapper.find("Pokedex").update();
@@ -110,7 +110,7 @@ describe("Test Pokedex component", () => {
   })
 
   test('Test advanced search and reset functionality', async() => {
-    
+    jest.setTimeout(10000);
     const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
     await wrapper.find("Pokedex").instance().componentDidMount()
     await wrapper.find("Pokedex").update();
@@ -139,7 +139,7 @@ describe("Test Pokedex component", () => {
     resetBtn.simulate("click");
     const pokListContainer2 = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
     const pokCards2 = pokListContainer2.childAt(0).children();
-    expect(pokCards2).toHaveLength(151);
+    expect(pokCards2).toHaveLength(12);
     
 
     const weakGrassbtn = pokDexContainer.at(2).find("Accordion").find(".pokedex-filter-tw-list").find("li > span.weakness-selector-Grass");
@@ -159,7 +159,7 @@ describe("Test Pokedex component", () => {
     expect(wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container").childAt(0).children()).toHaveLength(6);
 
     resetBtn.simulate("click");
-    expect(wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container").childAt(0).children()).toHaveLength(151);
+    expect(wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container").childAt(0).children()).toHaveLength(12);
 
 
     /** Using react testing library */
@@ -179,6 +179,7 @@ describe("Test Pokedex component", () => {
   })
 
   test('Test combination of adv. search , reset and searchbox filter', async() => {
+    jest.setTimeout(10000);
     const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
     await wrapper.find("Pokedex").instance().componentDidMount()
     await wrapper.find("Pokedex").update();
@@ -233,7 +234,7 @@ describe("Test Pokedex component", () => {
 
     pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
     pokCards = pokListContainer.childAt(0).children();
-    expect(pokCards).toHaveLength(151);
+    expect(pokCards).toHaveLength(12);
 
 
     /** Using react testing library */
@@ -275,6 +276,96 @@ describe("Test Pokedex component", () => {
     const NavButtonComp = wrapper.find("Pokedex").find("FloatingNavButton");
     expect(NavButtonComp).toHaveLength(1);
   })
+
+  test('Test Page size component rendering', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+    expect(wrapper.find("Pokedex").find('.page-size')).toHaveLength(1)
+    expect(wrapper.find("Pokedex").find('.page-size').find('.pagesize-input').prop('value')).toEqual(12)
+  })
+
+  test('Test Pagination pageno component rendering', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+    expect(wrapper.find("Pokedex").find('.pagination')).toHaveLength(1)
+    expect(wrapper.find("Pokedex").find('.pagination').find('.page-no')).toHaveLength(13)
+    expect(wrapper.find("Pokedex").find('.pagination').find('.pagination-active-page-no')).toHaveLength(1)
+  })
+
+  test('Test sorting', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+
+    let pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    let pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(12);
+
+    expect(pokCards.at(0).find('.pok-name').text()).toEqual('Bulbasaur');
+    const pokDexContainer = wrapper.find("Pokedex").childAt(0).children();
+    const advSearchAccordion = pokDexContainer.find("#advancedSearch").at(1);
+    
+    advSearchAccordion.simulate('click');
+    advSearchAccordion.find('.adv-sort-container').find('#asc').simulate('change', {target:{value: true}})
+    pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(12);
+
+    expect(pokCards.at(0).find('.pok-name').text()).toEqual('Abra');
+
+    advSearchAccordion.find('.adv-sort-container').find('#desc').simulate('change', {target:{value: true}})
+    pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(12);
+
+    expect(pokCards.at(0).find('.pok-name').text()).toEqual('Zubat');
+  }, 15000)
+
+  test('Test working Pagesize component', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+
+    let pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    let pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(12);
+    
+    wrapper.find("Pokedex").find('.page-size').find('.pagesize-input').simulate('change', { target: {value: 5}})
+    pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(5);
+
+    wrapper.find("Pokedex").find('.page-size').find('.pagesize-input').simulate('change', { target: {value: 10}})
+    pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(10);
+  }, 15000)
+
+  test('Test working Pagesize-pagination component', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+
+    let pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    let pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(12);
+    
+    wrapper.find("Pokedex").find('.page-size').find('.pagesize-input').simulate('change', { target: {value: 5}})
+    expect(wrapper.find("Pokedex").find('.pagination').find('.page-no')).toHaveLength(31)
+    
+
+
+    wrapper.find("Pokedex").find('.page-size').find('.pagesize-input').simulate('change', { target: {value: 10}})
+    expect(wrapper.find("Pokedex").find('.pagination').find('.page-no')).toHaveLength(16)
+    wrapper.find("Pokedex").find('.pagination').find('.page-no').at(15).simulate('click');
+
+    pokListContainer = wrapper.find("Pokedex").childAt(0).children().find(".poke-list-container");
+    pokCards = pokListContainer.childAt(0).children();
+    expect(pokCards).toHaveLength(1);
+
+  }, 15000)
 
 })
 
