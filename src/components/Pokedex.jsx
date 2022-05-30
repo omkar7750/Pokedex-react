@@ -6,6 +6,7 @@ import NavButton from './floatingnavbtn';
 import config from '../config.js';
 import { orderBy } from 'lodash';
 import {getPaginatedItems} from '../utility/pagination';
+import loaderImage from '../utility/images/loader1.gif'
 
 export default class Pokedex extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ export default class Pokedex extends Component {
       filtertypes: [],
       typeWeaknessList: [],
       pageSize: 12,
-      currentPage: 1
+      currentPage: 1,
+      loading: true
 
     };
   }
@@ -106,6 +108,7 @@ export default class Pokedex extends Component {
           pokemons: json.pokemon,
           filteredPoks: json.pokemon,
           typeWeaknessList,
+          loading: false
         });
       });
   }
@@ -135,7 +138,7 @@ export default class Pokedex extends Component {
         
         <AdvancedSearch {...advSearchProps} />
         <div data-testid="pokListContainer" className='poke-list-container'><ul>
-          {paginationRecord.data.map((pok, i) => {
+          {this.state.loading? <div className='loader'><img src={loaderImage} /></div>:paginationRecord.data.map((pok, i) => {
             return <Pokecard key={`pokdetails-${i}`} {...pok} />;
           })}
         </ul>

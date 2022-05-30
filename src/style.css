@@ -108,6 +108,12 @@ p {
   border: 1px solid #4CAF50;
 }
 
+.loader {
+  width: 500px;
+  height: 500px;
+  display: flex;
+}
+
 @keyframes animation {
   50% {
     transform: translateY(-10px);
