@@ -135,9 +135,10 @@ p {
 
 .gallary {
   display: grid;
-  grid-template-rows: 150px 500px 100px;
+  grid-template-rows: 150px 50px 500px 100px;
   max-width: 1024px;
   margin: 0 auto;
+  grid-gap: 15px;
 }
 
 .gal-heading{
@@ -180,7 +181,7 @@ p {
   font-size: xxx-large;
   align-items: center;
   background: url('../public/gallary_bckgnd.png');
-  margin: 20px 0;
+  /* margin: 20px 0; */
   box-shadow: 1px 1px 1px white;
   color: white;
   user-select: none;
@@ -212,6 +213,38 @@ p {
   box-shadow: 0 1px 1px white;
 }
 
+.gal-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #212121;
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+
+.gal-nav-link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gal-nav-link {
+  text-decoration: none;
+  padding: 15px;
+  color: white;
+}
+
+.gal-nav-link:hover {
+  background-color: black;
+}
+
+.gal-link-first {
+  border-radius: 8px 0 0 8px;
+}
+
+.gal-link-last {
+  border-radius: 0 8px 8px 0;
+}
 
 @keyframes animation {
   50% {

@@ -26,7 +26,13 @@ describe('Test PokHome component', () => {
     test('Test PokHome explore link points to pokdex page', () => {
         const wrapper =mount(<MemoryRouter><PokHome /></MemoryRouter>);
         const PokHomeComp = wrapper.find('PokHome');
-        expect(PokHomeComp.find('.pokhome-nav').find('a').prop('href')).toEqual('/pokdex');
+        expect(PokHomeComp.find('.pokhome-nav').find('a#pokdexLink').at(0).prop('href')).toEqual('/pokdex');
+    });
+
+    test('Test PokHome explore link points to gallary page', () => {
+        const wrapper =mount(<MemoryRouter><PokHome /></MemoryRouter>);
+        const PokHomeComp = wrapper.find('PokHome');
+        expect(PokHomeComp.find('.pokhome-nav').find('a#gallaryLink').at(0).prop('href')).toEqual('/gallary');
     });
 
     test('Test PokHome description', () => {

@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import config from '../config';
 import Loader from './loader';
+import { Link } from 'react-router-dom';
+import AboutUs from './aboutus';
 
 export default function Gallary(props) { 
     const [imagePath, setImagePath] = useState("")
@@ -38,6 +40,15 @@ export default function Gallary(props) {
         <div className='gallary-container'>
         <div className='gallary'>
             <div className='gal-heading'>Pokemon Gallary</div>
+            <div className='gal-nav-bar'>
+                <div className='gal-nav-link-container'>
+                    <Link className="gal-nav-link gal-link-first" to={'/'}>Home</Link>
+                    <Link className="gal-nav-link" to={'/pokdex'}>Pokédex</Link>
+                </div>
+                <div className='gal-nav-link-container'>
+                    <Link className="gal-nav-link gal-link-last" to={'/aboutus'}>About Us</Link>
+                </div>
+            </div>
             <div className='gal-zoomed-view'>{imagePath ?
                 <>
                     <FontAwesomeIcon className={'gal-image-slide-icon ' + (imagePath == images[0]? "disabled" : "")} icon={faChevronLeft} onClick={viewPrevious} />
