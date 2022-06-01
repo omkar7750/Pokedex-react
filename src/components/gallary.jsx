@@ -55,9 +55,9 @@ export default function Gallary(props) {
             </div>
             <div className='gal-zoomed-view'>{imagePath ?
                 <>
-                    <FontAwesomeIcon className={'gal-image-slide-icon ' + (imagePath == images[0]? "disabled" : "")} icon={faChevronLeft} onClick={viewPrevious} />
+                    <FontAwesomeIcon className={'gal-image-slide-icon prev ' + (imagePath == images[0]? "disabled" : "")} icon={faChevronLeft} onClick={viewPrevious} />
                     <img src={imagePath} className="zoomed-image" />
-                    <FontAwesomeIcon className={'gal-image-slide-icon ' + (imagePath == images[images.length - 1]? "disabled" : "")} icon={faChevronRight} onClick={viewNext} />
+                    <FontAwesomeIcon className={'gal-image-slide-icon next ' + (imagePath == images[images.length - 1]? "disabled" : "")} icon={faChevronRight} onClick={viewNext} />
                 </>: <Loader /> }
             </div>
             <div className='gal-images-to-view'>{

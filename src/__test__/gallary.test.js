@@ -5,9 +5,11 @@ import 'whatwg-fetch';
 import Gallary from '../components/gallary';
 import { act } from "react-dom/test-utils";
 
+global.HTMLElement.prototype.scrollIntoView = function() {};
+
 const waitForComponentToRender = async (wrapper) => {
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
       wrapper.update();
     });
  };
@@ -53,11 +55,99 @@ describe('Test Gallary component', () => {
         // expect(gallayComp.find('.gal-images-to-view').render().find('.imgview')).toHaveLength(2)
     });
 
-    // test('Test Gallary images in imgview pannel', async() => {
-    //     const gallayComp =mount(<MemoryRouter><Gallary /></MemoryRouter>).find('Gallary');
-    //     await waitForComponentToRender(gallayComp);
-    //     await gallayComp.update();
-    //     expect(gallayComp.find('.gal-images-to-view').render().find('.imgview')).toHaveLength(2)
-    // },15000);
+    test('Test Gallary images in imgview pannel', async() => {
+        const gallayComp =mount(<MemoryRouter><Gallary /></MemoryRouter>).find('Gallary');
+        await waitForComponentToRender(gallayComp);
+        await gallayComp.update();
+        expect(gallayComp.find('.gal-images-to-view').render().find('img.imgview').length).toEqual(151)
+    },15000);
+
+
+    test('Test Gallary image view selected image', async() => {
+        const wrapper =mount(<MemoryRouter><Gallary /></MemoryRouter>);
+        
+        await waitForComponentToRender(wrapper);
+        await wrapper.update();
+        let gallayComp = wrapper.find('Gallary');
+        const imviewImages = gallayComp.find('.gal-images-to-view').find('img.imgview');
+        imviewImages.at(3).simulate('click');
+        let imgUrl = imviewImages.at(3).prop('src');
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+        expect(gallayComp.find('.gal-zoomed-view').find('.zoomed-image').prop('src')).toEqual(imgUrl);
+
+    },15000);
+
+
+    
+    test('Test Gallary image view previous image', async() => {
+        const wrapper =mount(<MemoryRouter><Gallary /></MemoryRouter>);
+        
+        await waitForComponentToRender(wrapper);
+        await wrapper.update();
+        let gallayComp = wrapper.find('Gallary');
+        const imviewImages = gallayComp.find('.gal-images-to-view').find('img.imgview');
+
+        
+        let imgUrl = imviewImages.at(0).prop('src');
+
+        gallayComp.find('.gal-zoomed-view').find('svg.prev.gal-image-slide-icon').simulate('click');
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+        expect(gallayComp.find('.gal-zoomed-view').find('.zoomed-image').prop('src')).toEqual(imgUrl);
+
+        
+        imviewImages.at(3).simulate('click');
+        imgUrl = imviewImages.at(3).prop('src');
+
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+
+        
+        gallayComp.find('.gal-zoomed-view').find('svg.prev.gal-image-slide-icon').simulate('click');
+
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+
+        imgUrl = imviewImages.at(2).prop('src');
+        expect(gallayComp.find('.gal-zoomed-view').find('.zoomed-image').prop('src')).toEqual(imgUrl);
+
+
+    },15000);
+
+    test('Test Gallary image view next image', async() => {
+        const wrapper =mount(<MemoryRouter><Gallary /></MemoryRouter>);
+        
+        await waitForComponentToRender(wrapper);
+        await wrapper.update();
+        let gallayComp = wrapper.find('Gallary');
+        const imviewImages = gallayComp.find('.gal-images-to-view').find('img.imgview');
+
+        imviewImages.at(imviewImages.length - 1).simulate('click');
+        let imgUrl = imviewImages.at(imviewImages.length - 1).prop('src');
+
+        gallayComp.find('.gal-zoomed-view').find('svg.next.gal-image-slide-icon').simulate('click');
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+        expect(gallayComp.find('.gal-zoomed-view').find('.zoomed-image').prop('src')).toEqual(imgUrl);
+
+
+        imviewImages.at(3).simulate('click');
+        imgUrl = imviewImages.at(3).prop('src');
+        
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+
+        gallayComp.find('.gal-zoomed-view').find('svg.next.gal-image-slide-icon').simulate('click');
+
+        await wrapper.update();
+        gallayComp = wrapper.find('Gallary');
+
+        imgUrl = imviewImages.at(4).prop('src');
+        expect(gallayComp.find('.gal-zoomed-view').find('.zoomed-image').prop('src')).toEqual(imgUrl);
+
+
+    },15000);
+
 
 })
