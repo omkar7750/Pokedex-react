@@ -1,14 +1,16 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import config from '../config';
 import Loader from './loader';
 import { Link } from 'react-router-dom';
 import AboutUs from './aboutus';
 
+
 export default function Gallary(props) { 
     const [imagePath, setImagePath] = useState("")
     const [images, setImages] = useState([]);
+    const imgviewRef = useRef([]);
 
     useEffect(() => {
         fetch(config.dataUrl)
@@ -28,12 +30,14 @@ export default function Gallary(props) {
         const imageIndex = images.indexOf(imagePath);
         if(imageIndex == 0) return;
         setImagePath(images[imageIndex - 1])
+        imgviewRef.current[images[imageIndex - 1]].scrollIntoView()
     }
 
     const viewNext = () => {
         const imageIndex = images.indexOf(imagePath);
         if(imageIndex == images.length - 1) return;
         setImagePath(images[imageIndex + 1])
+        imgviewRef.current[images[imageIndex + 1]].scrollIntoView()
     }
 
     return (
@@ -58,7 +62,7 @@ export default function Gallary(props) {
             </div>
             <div className='gal-images-to-view'>{
                 images.map((img, i) => {
-                    return (<img src={img} key={`imgview-${i}`} onClick={() => viewImage(img)} className={"imgview " + (img == imagePath? "gal-img-active": "")} />)
+                    return (<img src={img} ref={(el) => imgviewRef.current[img] = el} key={`imgview-${i}`} onClick={() => viewImage(img)} className={"imgview " + (img == imagePath? "gal-img-active": "")} />)
                 })
             }</div>
         </div>
