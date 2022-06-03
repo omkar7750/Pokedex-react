@@ -1247,7 +1247,7 @@ a.nav-btn-link:hover {
   font-size: medium;
 }
 
-.pokedex ul .li .pok-info-listView  .abilities span {
+.pokedex ul .li .pok-info-listView .abilities span {
   line-height: 30px;
 }
 
@@ -1323,6 +1323,10 @@ a.nav-btn-link:hover {
     display: flex;
     width: 100%;
     height: 130px;
+  }
+
+  .pokedex ul .li .pok-info-listView {
+    margin-left: 10px;
   }
 }
 
@@ -1417,6 +1421,9 @@ a.nav-btn-link:hover {
     width: 100%;
     height: 130px;
   }
+  .pokedex ul .li .pok-info-listView {
+    margin-left: 10px;
+  }
 }
 
 @media screen and (max-width: 474px) {
@@ -1445,6 +1452,9 @@ a.nav-btn-link:hover {
     display: flex;
     width: 100%;
     height: 130px;
+  }
+  .pokedex ul .li .pok-info-listView {
+    margin-left: 10px;
   }
 }
 
