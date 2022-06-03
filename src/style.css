@@ -1266,10 +1266,13 @@ a.nav-btn-link:hover {
   font-size: medium;
   display: flex;
   align-items: center;
+  font-weight: 600;
 }
 
 .poklist-mode-checkbox {
   margin-left: 15px;
+  height: 18px;
+  width: 18px;
 }
 
 @media screen and (max-width: 755px) {
