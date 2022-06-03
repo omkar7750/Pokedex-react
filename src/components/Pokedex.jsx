@@ -5,7 +5,7 @@ import AdvancedSearch from './advancedsearch';
 import NavButton from './floatingnavbtn';
 import config from '../config.js';
 import { orderBy } from 'lodash';
-import {getPaginatedItems} from '../utility/pagination';
+import { getPaginatedItems } from '../utility/pagination';
 import Loader from './loader';
 
 export default class Pokedex extends Component {
@@ -20,8 +20,8 @@ export default class Pokedex extends Component {
       typeWeaknessList: [],
       pageSize: 12,
       currentPage: 1,
-      loading: true
-
+      loading: true,
+      listView: false,
     };
   }
 
@@ -75,19 +75,19 @@ export default class Pokedex extends Component {
   };
 
   handleSortByName = (sortType) => {
-    let filteredPoks = orderBy([...this.state.pokemons], 'name', sortType);
+    let filteredPoks = orderBy([...this.state.pokemons], 'name', sortType);
     this.setState({
-      filteredPoks
+      filteredPoks,
     });
-  }
+  };
 
   setCurrentPage = (currentPage) => {
-    this.setState({ currentPage})
-  }
+    this.setState({ currentPage });
+  };
 
   setPageSize = (pageSize) => {
-    this.setState({ pageSize, currentPage: 1 })
-  }
+    this.setState({ pageSize, currentPage: 1 });
+  };
 
   componentDidMount() {
     return fetch(config.dataUrl)
@@ -108,7 +108,7 @@ export default class Pokedex extends Component {
           pokemons: json.pokemon,
           filteredPoks: json.pokemon,
           typeWeaknessList,
-          loading: false
+          loading: false,
         });
       });
   }
@@ -119,41 +119,86 @@ export default class Pokedex extends Component {
       filterWeaknessess: this.props.filterWeaknessess,
       filtertypes: this.props.filtertypes,
       handleMSearch: this.handleMSearch,
-      handleSortByName: this.handleSortByName
+      handleSortByName: this.handleSortByName,
     };
 
-    const {filteredPoks, currentPage, pageSize} = this.state;
+    const { filteredPoks, currentPage, pageSize } = this.state;
 
-    let paginationRecord = getPaginatedItems(filteredPoks, currentPage, pageSize);
+    let paginationRecord = getPaginatedItems(
+      filteredPoks,
+      currentPage,
+      pageSize
+    );
 
     return (
       <div className="pokedex">
-        <div className="pokedex-title">Pokédex<span data-testid="pok-animation" className='pok-icon-pokedex'></span></div>
-        
-        <div className='pokdex-searchbox-backbtn-container'><SearchBox
-          nameOrNum={this.state.nameOrNum}
-          handleMSearch={this.handleMSearch}
-        />
-        <NavButton /></div>
-        
-        <AdvancedSearch {...advSearchProps} />
-        <div data-testid="pokListContainer" className='poke-list-container'><ul>
-          {this.state.loading? <div className='loader'><Loader /></div>:paginationRecord.data.map((pok, i) => {
-            return <Pokecard key={`pokdetails-${i}`} {...pok} />;
-          })}
-        </ul>
+        <div className="pokedex-title">
+          Pokédex
+          <span data-testid="pok-animation" className="pok-icon-pokedex"></span>
+        </div>
 
-        <div className='page-size'>
-          Page Size: <input type="text" className="pagesize-input" value={pageSize} onChange={(e)=>this.setPageSize(e.target.value)} />
+        <div className="pokdex-searchbox-backbtn-container">
+          <SearchBox
+            nameOrNum={this.state.nameOrNum}
+            handleMSearch={this.handleMSearch}
+          />
+          <NavButton />
         </div>
-        <div className="pagination">
-          { 
-          [ ...Array(paginationRecord.total_pages).keys() ].map ((d) => {
-             return ( <a  key={`page-no-${d+1}`} className = { currentPage == d+1? "page-no pagination-active-page-no": "page-no" }  onClick={() => this.setCurrentPage(d+1)}>{d+1}</a>)
-          })
-          }
-          
+
+        <AdvancedSearch {...advSearchProps} />
+        <div className="poklist-mode">
+          List View:
+          <input
+            type="checkbox"
+            className="poklist-mode-checkbox"
+            checked={this.state.listView}
+            onChange={(e) => this.setState({ listView: e.target.checked })}
+          />
         </div>
+        <div data-testid="pokListContainer" className="poke-list-container">
+          <ul>
+            {this.state.loading ? (
+              <div className="loader">
+                <Loader />
+              </div>
+            ) : (
+              paginationRecord.data.map((pok, i) => {
+                return (
+                  <Pokecard
+                    key={`pokdetails-${i}`}
+                    {...{ ...pok, listView: this.state.listView }}
+                  />
+                );
+              })
+            )}
+          </ul>
+
+          <div className="page-size">
+            Page Size:{' '}
+            <input
+              type="text"
+              className="pagesize-input"
+              value={pageSize}
+              onChange={(e) => this.setPageSize(e.target.value)}
+            />
+          </div>
+          <div className="pagination">
+            {[...Array(paginationRecord.total_pages).keys()].map((d) => {
+              return (
+                <a
+                  key={`page-no-${d + 1}`}
+                  className={
+                    currentPage == d + 1
+                      ? 'page-no pagination-active-page-no'
+                      : 'page-no'
+                  }
+                  onClick={() => this.setCurrentPage(d + 1)}
+                >
+                  {d + 1}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

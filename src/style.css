@@ -1215,6 +1215,48 @@ a.nav-btn-link:hover {
   color: #fff;
 }
 
+.pokedex ul .li-listView {
+  display: flex;
+  width: 100%;
+  height: 130px;
+}
+
+.pokimg-listView {
+  width: 50%;
+  max-width: 250px;
+  padding-top: 0;
+}
+
+.pokedex ul .li .img-listView {
+  width: auto;
+}
+
+.pokedex ul .li .a-listView {
+  display: flex;
+  justify-content: center;
+}
+
+.pokedex ul .li .pok-info-listView {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.poklist-mode {
+  margin: 5px;
+  background-color: cadetblue;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-family: system-ui;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+}
+
+.poklist-mode-checkbox {
+  margin-left: 15px;
+}
+
 @media screen and (max-width: 755px) {
   .pagination .page-no {
     padding: 6px 12px;
@@ -1257,6 +1299,12 @@ a.nav-btn-link:hover {
   .pagination .page-no {
     padding: 3px 6px;
     font-size: 12px;
+  }
+
+  .pokedex ul .li-listView {
+    display: flex;
+    width: 100%;
+    height: 130px;
   }
 }
 
@@ -1345,6 +1393,12 @@ a.nav-btn-link:hover {
     padding: 3px 6px;
     font-size: 12px;
   }
+
+  .pokedex ul .li-listView {
+    display: flex;
+    width: 100%;
+    height: 130px;
+  }
 }
 
 @media screen and (max-width: 474px) {
@@ -1367,6 +1421,12 @@ a.nav-btn-link:hover {
 
   .gal-heading {
     font-size: x-large;
+  }
+
+  .pokedex ul .li-listView {
+    display: flex;
+    width: 100%;
+    height: 130px;
   }
 }
 
