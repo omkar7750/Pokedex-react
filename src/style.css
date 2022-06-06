@@ -1111,6 +1111,7 @@ a.nav-btn-link:hover {
   background-repeat: no-repeat;
   width: 40%;
   height: auto;
+  min-height: 500px;
 }
 
 .pokedex .page-size {
