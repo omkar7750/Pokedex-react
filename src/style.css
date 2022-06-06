@@ -40,7 +40,6 @@ p {
 }
 
 .pokedex {
-  
   /* background-color: white; */
 }
 
@@ -1303,6 +1302,7 @@ a.nav-btn-link:hover {
 
 .sidebar-open {
   margin-left: 280px !important;
+  transition: 0.5s !important;
 }
 
 .sidebar {
@@ -1345,9 +1345,9 @@ a.nav-btn-link:hover {
 
 .sidebar-close {
   display: flex;
-    justify-content: flex-end;
-    color: #818181;
-    padding-right: 5px;
+  justify-content: flex-end;
+  color: #818181;
+  padding-right: 5px;
 }
 
 .sidebar-close-icon {
@@ -1355,6 +1355,15 @@ a.nav-btn-link:hover {
   cursor: pointer;
 }
 
+.show-sidebar {
+  width: 280px;
+  transition: width 0.5s;
+}
+
+.hide-sidebar {
+  width: 0;
+  transition: width 0.3s;
+}
 
 @media screen and (max-width: 755px) {
   .pagination .page-no {
@@ -1412,6 +1421,11 @@ a.nav-btn-link:hover {
 
   .sidebar {
     width: 100%;
+  }
+
+  .hide-sidebar {
+    width: 0;
+    transition: width 0.3s;
   }
 }
 
@@ -1513,6 +1527,10 @@ a.nav-btn-link:hover {
   .sidebar {
     width: 100%;
   }
+  .hide-sidebar {
+    width: 0;
+    transition: width 0.3s;
+  }
 }
 
 @media screen and (max-width: 474px) {
@@ -1548,6 +1566,10 @@ a.nav-btn-link:hover {
 
   .sidebar {
     width: 100%;
+  }
+  .hide-sidebar {
+    width: 0;
+    transition: width 0.3s;
   }
 }
 
