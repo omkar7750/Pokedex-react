@@ -31,9 +31,8 @@ p {
 }
 
 .pokedex {
-  max-width: 1024px;
-  margin: 0 auto;
-  background-color: white;
+  
+  /* background-color: white; */
 }
 
 .pok-app-container {
@@ -72,6 +71,12 @@ p {
 .searchbox-container {
   padding-left: 15px;
   margin-top: 10px;
+}
+
+.pokedex .poke-list-container {
+  max-width: 1296px;
+  margin: 0 auto;
+  background-color: white;
 }
 
 .pokedex .poke-list-container ul {
@@ -152,8 +157,8 @@ p {
 .gallary {
   display: grid;
   grid-template-rows: 150px 50px 500px 100px;
-  max-width: 1024px;
-  margin: 0 auto;
+  /* max-width: 1024px;
+  margin: 0 auto; */
   grid-gap: 15px;
 }
 
@@ -189,7 +194,7 @@ p {
   -webkit-box-shadow: inset 0 0 6px black;
 }
 
-.gal-zoomed-view {
+.zoomed-container {
   display: flex;
   justify-content: space-around;
   font-size: xxx-large;
@@ -200,6 +205,9 @@ p {
   color: white;
   user-select: none;
   border-radius: 8px;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
 .zoomed-image {
@@ -582,7 +590,7 @@ h5 {
   background-color: #616161;
   color: #6cc06c;
   border-radius: 8px;
-  max-width: 1024px;
+  /* max-width: 1024px; */
   margin: 0 auto;
 }
 
@@ -896,8 +904,8 @@ h5 {
   height: 100vh;
   color: white;
   position: relative;
-  margin: 0 auto;
-  max-width: 1024px;
+  /* margin: 0 auto;
+  max-width: 1024px; */
 }
 
 .footer-container {
@@ -975,7 +983,7 @@ h5 {
   align-items: center;
   border-radius: 8px;
   margin: 15px 0;
-  font-size: x-large;
+  font-size: large;
   font-family: sans-serif;
   background-color: #333131;
 }
@@ -1034,8 +1042,9 @@ a.nav-btn-link:hover {
 }
 
 .aboutus-container {
-  max-width: 1024px;
-  margin: 0 auto;
+  /* max-width: 1024px;
+  margin: 0 auto; */
+  height: 100%;
 }
 
 .aboutus-title {
@@ -1258,7 +1267,8 @@ a.nav-btn-link:hover {
 
 .poklist-mode {
   margin: 5px;
-  background-color: cadetblue;
+  /* background-color: #4caf50e3; */
+  background: linear-gradient(45deg, black, transparent);
   padding: 10px;
   border-radius: 8px;
   color: white;
@@ -1273,6 +1283,7 @@ a.nav-btn-link:hover {
   margin-left: 15px;
   height: 18px;
   width: 18px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 755px) {

@@ -367,6 +367,27 @@ describe("Test Pokedex component", () => {
 
   }, 15000)
 
+
+  test('Test pokemon list mode selector', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+    expect(wrapper.find("Pokedex").find('.poklist-mode')).toHaveLength(1)
+    expect(wrapper.find("Pokedex").find('.poklist-mode').find('input.poklist-mode-checkbox')).toHaveLength(1)
+    
+  })
+
+  test('Test pokemon list mode view', async() => {
+    const wrapper = mount(<MemoryRouter><Pokedex /></MemoryRouter>);
+    await wrapper.find("Pokedex").instance().componentDidMount()
+    await wrapper.find("Pokedex").update();
+    expect(wrapper.find("Pokedex").find('.poklist-mode').find('input.poklist-mode-checkbox')).toHaveLength(1)
+    wrapper.find("Pokedex").find('.poklist-mode').find('input.poklist-mode-checkbox').simulate('change', {target: {checked: true}});
+    expect(wrapper.find('Pokedex').find('.poke-list-container').find('ul li.li-listView').length).toEqual(12);
+    wrapper.find("Pokedex").find('.poklist-mode').find('input.poklist-mode-checkbox').simulate('change', {target: {checked: false}});
+    expect(wrapper.find('Pokedex').find('.poke-list-container').find('ul li.li-listView').length).toEqual(0);
+  })
+
 })
 
 
