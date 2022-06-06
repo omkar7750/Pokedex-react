@@ -7,6 +7,9 @@ import config from '../config.js';
 import { orderBy } from 'lodash';
 import { getPaginatedItems } from '../utility/pagination';
 import Loader from './loader';
+import SideNav from './sidenav';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 export default class Pokedex extends Component {
   constructor(props) {
@@ -22,6 +25,7 @@ export default class Pokedex extends Component {
       currentPage: 1,
       loading: true,
       listView: false,
+      showNav: false
     };
   }
 
@@ -89,6 +93,10 @@ export default class Pokedex extends Component {
     this.setState({ pageSize, currentPage: 1 });
   };
 
+  toggleSideNav = () => {
+    this.setState({showNav: !this.state.showNav})
+  }
+
   componentDidMount() {
     return fetch(config.dataUrl)
       .then((response) => response.json())
@@ -120,6 +128,7 @@ export default class Pokedex extends Component {
       filtertypes: this.props.filtertypes,
       handleMSearch: this.handleMSearch,
       handleSortByName: this.handleSortByName,
+      sideBarOpen: this.state.showNav
     };
 
     const { filteredPoks, currentPage, pageSize } = this.state;
@@ -132,21 +141,24 @@ export default class Pokedex extends Component {
 
     return (
       <div className="pokedex">
-        <div className="pokedex-title">
+        <div className={"pokedex-title "+ (this.state.showNav? "sidebar-open": "")}>
+        <span>
+          <FontAwesomeIcon onClick={() => this.toggleSideNav()} className='menu-bars-icon' icon={faBars} />
           Pokédex
-          <span data-testid="pok-animation" className="pok-icon-pokedex"></span>
+        </span>
+        <span data-testid="pok-animation" className="pok-icon-pokedex"></span>
         </div>
 
-        <div className="pokdex-searchbox-backbtn-container">
+        <div className={"pokdex-searchbox-backbtn-container "+ (this.state.showNav? "sidebar-open": "")}>
           <SearchBox
             nameOrNum={this.state.nameOrNum}
             handleMSearch={this.handleMSearch}
           />
-          <NavButton />
+          {!this.state.showNav && <NavButton />}
         </div>
 
         <AdvancedSearch {...advSearchProps} />
-        <div className="poklist-mode">
+        <div className={"poklist-mode "+ (this.state.showNav? "sidebar-open": "")}>
           List View:
           <input
             type="checkbox"
@@ -155,7 +167,7 @@ export default class Pokedex extends Component {
             onChange={(e) => this.setState({ listView: e.target.checked })}
           />
         </div>
-        <div data-testid="pokListContainer" className="poke-list-container">
+        <div data-testid="pokListContainer" className={"poke-list-container "+ (this.state.showNav? "sidebar-open": "")}>
           <ul>
             {this.state.loading ? (
               <div className="loader">
@@ -173,7 +185,7 @@ export default class Pokedex extends Component {
             )}
           </ul>
 
-          <div className="page-size">
+          <div className={"page-size "}>
             Page Size:{' '}
             <input
               type="text"
@@ -182,7 +194,7 @@ export default class Pokedex extends Component {
               onChange={(e) => this.setPageSize(e.target.value)}
             />
           </div>
-          <div className="pagination">
+          <div className={"pagination"}>
             {[...Array(paginationRecord.total_pages).keys()].map((d) => {
               return (
                 <a
@@ -200,6 +212,7 @@ export default class Pokedex extends Component {
             })}
           </div>
         </div>
+        {this.state.showNav && <SideNav closeSideBar={this.toggleSideNav} />}
       </div>
     );
   }

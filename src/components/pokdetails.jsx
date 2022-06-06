@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Pokecard from './pokecard';
 import NavButton from './floatingnavbtn';
 
-import config from '../config.js';
+import  config from '../config';
+const {links: { pokedex}} = config;
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -159,7 +160,7 @@ export default function PokDetails() {
             </div>
           </div>
           <div className='pokdetails-backbtns-container'>
-          <Link className='backbtnlink' to={'/pokdex'}>
+          <Link className='backbtnlink' to={pokedex.url}>
             <button  className="backbtn">
               <FontAwesomeIcon className='back-btn-chevron-left' icon={faChevronLeft} />
               Explore More Pokémon

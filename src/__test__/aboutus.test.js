@@ -24,7 +24,6 @@ describe('Test AboutUs component', () => {
 
     test('Test AboutUs explore pokedex link', () => {
         const wrapper =mount(<MemoryRouter><AboutUs /></MemoryRouter>);
-        expect(wrapper.find('AboutUs').find('.aboutus-pokdex-nav').find('a.aboutus-pokdex-link').text()).toEqual('Explore Pokedex');
         expect(wrapper.find('AboutUs').find('.aboutus-pokdex-nav').find('a.aboutus-pokdex-link').prop('href')).toEqual('/pokdex');
     });
 

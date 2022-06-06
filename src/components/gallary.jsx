@@ -1,7 +1,8 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState, useRef } from 'react';
-import config from '../config';
+import  config from '../config';
+const {links: {home, pokedex, aboutus}} = config;
 import Loader from './loader';
 import { Link } from 'react-router-dom';
 import AboutUs from './aboutus';
@@ -46,11 +47,11 @@ export default function Gallary(props) {
             <div className='gal-heading'>Pokemon Gallary</div>
             <div className='gal-nav-bar'>
                 <div className='gal-nav-link-container'>
-                    <Link className="gal-nav-link gal-link-first" to={'/'}>Home</Link>
-                    <Link className="gal-nav-link" to={'/pokdex'}>Pokédex</Link>
+                    <Link className="gal-nav-link gal-link-first" to={home.url}>{home.label}</Link>
+                    <Link className="gal-nav-link" to={pokedex.url}>{pokedex.label}</Link>
                 </div>
                 <div className='gal-nav-link-container'>
-                    <Link className="gal-nav-link gal-link-last" to={'/aboutus'}>About Us</Link>
+                    <Link className="gal-nav-link gal-link-last" to={aboutus.url}>{aboutus.label}</Link>
                 </div>
             </div>
             <div className='gal-zoomed-view'>{imagePath ?

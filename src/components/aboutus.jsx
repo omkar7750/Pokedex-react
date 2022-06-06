@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavButton from './floatingnavbtn';
-import config from '../config';
+import  config from '../config';
+const {links: {pokedex}} = config;
 
 export default function AboutUs(props) {
   return (
@@ -10,7 +11,7 @@ export default function AboutUs(props) {
         <div className='sub-container-a'>
             <div className='aboutus-title'>About Us</div>
             <div className='aboutus-pokdex-nav'>
-                <Link to={'/pokdex'} className='aboutus-pokdex-link'>Explore Pokedex</Link>
+                <Link to={pokedex.url} className='aboutus-pokdex-link'>{`Explore ${pokedex.label}`}</Link>
                 <NavButton />            
             </div>
             <div className='aboutus-content'>
